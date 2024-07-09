@@ -26,7 +26,9 @@ export default function MobileNav({ links, navbarBg }) {
                     <Button
                         variant="ghost"
                         className={` ${
-                            !navbarBg ? "border-white" : "border-black"
+                            !navbarBg
+                                ? "border-white"
+                                : "border-primary100 text-primary100"
                         } border-2 hover:bg-transparent `}>
                         <RxHamburgerMenu size={25} color="" />
                     </Button>
@@ -36,12 +38,12 @@ export default function MobileNav({ links, navbarBg }) {
                         <SheetTitle className="text-center">
                             {" "}
                             <Image
-                                src="/assets/Navlogo.png"
+                                src="/assets/Navlogo.svg"
                                 alt="logo"
                                 width={100}
                                 height={100}
                                 sizes="100"
-                                className="w-[200px] h-[120px] object-cover scale-125 mx-auto"
+                                className="w-[100px] h-[60px] object-contain mx-auto"
                             />
                         </SheetTitle>
                         <SheetDescription></SheetDescription>

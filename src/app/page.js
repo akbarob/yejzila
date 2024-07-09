@@ -35,17 +35,17 @@ export default function Home() {
                     comprehensive engineering solutions that redefine industry
                     standards.
                 </p>
-                <div className="grid lg:grid-cols-3 w-[70%] gap-6">
+                <div className="grid md:grid-cols-2 xl:grid-cols-3 w-[80%] gap-6 mx-auto place-content-center place-items-center">
                     {Offers.map((offer, i) => (
                         <div
                             key={offer}
-                            className="bg-slate-300 h-[250px] border rounded flex items-center justify-center hover:bg-primary100 transition-all duration-700">
+                            className="bg-slate-300 h-[250px] border rounded flex items-center justify-center hover:bg-primary100 transition-all duration-700 w-[250px] ">
                             {offer?.text}
                         </div>
                     ))}
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </main>
     );
 }
