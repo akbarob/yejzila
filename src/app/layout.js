@@ -32,15 +32,15 @@ export default function RootLayout({ children }) {
 
                 <meta property="og:site_name" content="Yejzila" key="og-site" />
 
-                {/* <meta
+                <meta
                     property="og:image"
-                    content="https://learningwithbabanlar.blob.core.windows.net/imagecontent/lwb667d8c20c4093.jpg"
+                    content="https://www.imghippo.com/i/KWvKk1720516061.jpg"
                 />
 
                 <meta
                     name="twitter:image"
-                    content="https://learningwithbabanlar.blob.core.windows.net/imagecontent/lwb667d8c20c4093.jpg"
-                /> */}
+                    content="https://www.imghippo.com/i/KWvKk1720516061.jpg"
+                />
                 <meta
                     name="twitter:title"
                     content={metadata.title}
