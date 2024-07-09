@@ -12,7 +12,7 @@ export default function Home() {
                 <Hero />
             </div>
 
-            <div className="h-[250px] w-full bg-primary100  flex flex-col p-44 justify-center items-start gap-4 ">
+            <div className="h-[250px] w-full bg-primary100  flex flex-col p-10 lg:p-44 justify-center items-start gap-4 ">
                 <p className="font-semibold text-4xl text-left">Who we are</p>
 
                 <p className="w-full max-w-[800px]">
@@ -24,11 +24,11 @@ export default function Home() {
                 </p>
             </div>
 
-            <div className="w-full flex flex-col px-44 py-20 justify-center items-center gap-6">
+            <div className="w-full flex flex-col px-10 lg:px-44 py-20 justify-center items-center gap-6">
                 <p className="font-semibold text-4xl text-left">
                     What we offer
                 </p>{" "}
-                <p className="w-full max-w-[600px] text-slate-600">
+                <p className="w-full max-w-[600px] text-slate-600 mb-14">
                     <span className="text-[#FF7306] font-bold">Yejzila</span>{" "}
                     Support Services in conjunction with Flenco Engineers Fluid
                     System&apos;s production ranges offer a diverse array of
@@ -39,7 +39,7 @@ export default function Home() {
                     {Offers.map((offer, i) => (
                         <div
                             key={offer}
-                            className="bg-slate-300 h-[250px] border rounded flex items-center justify-center">
+                            className="bg-slate-300 h-[250px] border rounded flex items-center justify-center hover:bg-primary100 transition-all duration-700">
                             {offer?.text}
                         </div>
                     ))}

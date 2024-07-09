@@ -27,8 +27,8 @@ export default function Navbar() {
         <nav
             className={`z-50 sticky top-0 h-[80px] w-full ${
                 navbarBg
-                    ? "backdrop-blur-sm  border-b border-b-primary100"
-                    : "-mt-[80px]"
+                    ? "backdrop-blur-sm  text-black border-b border-b-primary100"
+                    : "-mt-[80px] text-white"
             } flex  justify-between px-10 lg:px-40 items-center`}>
             <Image
                 src="/assets/Navlogo.png"
@@ -43,7 +43,7 @@ export default function Navbar() {
                 {links.map((link, i) => (
                     <li
                         key={link}
-                        className="hover:text-primary100 cursor-pointer transition-all  ease-in delay-200 font-semibold">
+                        className="hover:text-primary100 cursor-pointer transition-all  ease-in duration700 font-semibold p-2    hover:border-b-2 hover:border-b-primary100">
                         {link}
                     </li>
                 ))}
@@ -51,7 +51,7 @@ export default function Navbar() {
 
             {/* MOBILE */}
             <div>
-                <MobileNav links={links} />
+                <MobileNav links={links} navbarBg={navbarBg} />
             </div>
         </nav>
     );

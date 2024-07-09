@@ -19,7 +19,7 @@ const CarouselImages = [
 ];
 export default function Hero() {
     return (
-        <div className="h-[100vh] bg-indigo-600 w-full">
+        <div className="h-[100vh]  w-full">
             <Swiper
                 className="h-full"
                 loop={true}

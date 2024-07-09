@@ -16,15 +16,19 @@ import {
 import { RxHamburgerMenu } from "react-icons/rx";
 import Image from "next/image";
 
-export default function MobileNav({ links }) {
+export default function MobileNav({ links, navbarBg }) {
     const [open, setOpen] = useState(false);
     return (
         <div className="lg:hidden">
             {" "}
             <Sheet open={open} onOpenChange={setOpen}>
                 <SheetTrigger asChild>
-                    <Button variant="outline" className="hover:text-primary100">
-                        <RxHamburgerMenu size={32} color="" />
+                    <Button
+                        variant="ghost"
+                        className={` ${
+                            !navbarBg ? "border-white" : "border-black"
+                        } border-2 hover:bg-transparent `}>
+                        <RxHamburgerMenu size={25} color="" />
                     </Button>
                 </SheetTrigger>
                 <SheetContent className="flex flex-col justify-between">
