@@ -1,8 +1,8 @@
-import { Inter } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 
-const inter = Inter({ subsets: ["latin"] });
+const open_san = Open_Sans({ subsets: ["latin"] });
 
 export const metadata = {
     title: "Yejzila",
@@ -59,7 +59,7 @@ export default function RootLayout({ children }) {
                 <link rel="shortcut icon" href="/favicon.ico" />
             </Head>
             <div className="relative flex-col flex">
-                <body className={inter.className}>{children}</body>
+                <body className={open_san.className}>{children}</body>
             </div>
         </html>
     );
