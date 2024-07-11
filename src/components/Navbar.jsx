@@ -36,7 +36,7 @@ export default function Navbar() {
                 width={100}
                 height={100}
                 sizes="100"
-                className="w-[100px] h-[120px] object-contain"
+                className="w-[200px] h-[220px] object-contain"
             />
             {/* DESKTOP NAV */}
             <ul className="hidden lg:flex gap-10 justify-end  text-md w-full">

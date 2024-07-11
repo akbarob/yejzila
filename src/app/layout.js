@@ -34,12 +34,12 @@ export default function RootLayout({ children }) {
 
                 <meta
                     property="og:image"
-                    content="https://www.imghippo.com/i/KWvKk1720516061.jpg"
+                    content="https://www.imghippo.com/i/iglOM1720687574.png"
                 />
 
                 <meta
                     name="twitter:image"
-                    content="https://www.imghippo.com/i/KWvKk1720516061.jpg"
+                    content="https://www.imghippo.com/i/iglOM1720687574.png"
                 />
                 <meta
                     name="twitter:title"
