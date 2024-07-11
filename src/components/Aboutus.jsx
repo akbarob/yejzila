@@ -18,7 +18,7 @@ export default function Aboutus() {
     return (
         <div>
             {" "}
-            <div className="h-full lg:h-[700px] w-full bg-white flex flex-col p-10 lg:p-44 justify-center items-start gap-8 ">
+            <div className="h-full w-full bg-white flex flex-col p-10 lg:px-44 justify-center items-start gap-8 ">
                 <h3 className="font-semibold text-4xl text-left">
                     About Our Company
                 </h3>
