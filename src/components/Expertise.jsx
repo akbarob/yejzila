@@ -3,18 +3,18 @@ import React from "react";
 
 export default function Expertise() {
     return (
-        <div className="flex justify-start items-center gap-20">
-            <div className="w-1/2">
+        <div className="flex justify-start items-center gap-20 px-10 lg:px-40 py-20 h-full">
+            <div className="hidden lg:block flex-1">
                 <Image
                     src={`/assets/expertise.png`}
                     alt=""
                     height={100}
                     width={100}
                     sizes="100"
-                    className=" w-full h-full"
+                    className="w-full h-[700px] object-left object-cover"
                 />
             </div>
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-8  lg:w-1/2">
                 <h3 className="font-semibold text-4xl text-left">
                     Our Expertise
                 </h3>
@@ -26,7 +26,7 @@ export default function Expertise() {
                     solutions.
                 </p>
 
-                <div className="flex justify-start items-center">
+                <div className="flex justify-center items-start gap-4">
                     <span className=" p-6 w-[40px] h-[40px] rounded-[6px] bg-primary100 flex justify-center items-center">
                         1
                     </span>
@@ -43,24 +43,8 @@ export default function Expertise() {
                         </p>
                     </div>
                 </div>
-                <div className="flex justify-start items-center">
-                    <span className=" p-6 w-[40px] h-[40px] rounded-[6px] bg-primary100 flex justify-center items-center">
-                        1
-                    </span>
 
-                    <div>
-                        {" "}
-                        <h3 className="font-semibold text-4xl text-left">
-                            Geological Expertise
-                        </h3>
-                        <p className="w-full max-w-[800px] text-lg text-slate-600">
-                            We leverage our geological expertise to identify and
-                            evaluate promising reserves, ensuring efficient and
-                            responsible resource extraction.
-                        </p>
-                    </div>
-                </div>
-                <div className="flex justify-start items-center">
+                <div className="flex justify-center items-start gap-4">
                     <span className=" p-6 w-[40px] h-[40px] rounded-[6px] bg-primary100 flex justify-center items-center">
                         2
                     </span>
@@ -78,7 +62,7 @@ export default function Expertise() {
                         </p>
                     </div>
                 </div>
-                <div className="flex justify-start items-center">
+                <div className="flex justify-center items-start gap-4">
                     <span className=" p-6 w-[40px] h-[40px] rounded-[6px] bg-primary100 flex justify-center items-center">
                         3
                     </span>
@@ -97,7 +81,7 @@ export default function Expertise() {
                     </div>
                 </div>
 
-                <div className="flex justify-start items-center">
+                <div className="flex justify-center items-start gap-4">
                     <span className=" p-6 w-[40px] h-[40px] rounded-[6px] bg-primary100 flex justify-center items-center">
                         4
                     </span>

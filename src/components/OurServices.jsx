@@ -21,7 +21,7 @@ export default function OurServices() {
         },
     ];
     return (
-        <div className="h-full lg:h-[700px] w-full bg-primary100   flex flex-col p-10 lg:p-44 justify-center items-start gap-8 ">
+        <div className="h-full w-full bg-primary100   flex flex-col p-10 lg:px-44 justify-center items-start gap-8 ">
             <h3 className="font-semibold text-4xl text-left">Our Services </h3>
 
             <p className="w-full max-w-[800px] text-lg text-slate-600">
