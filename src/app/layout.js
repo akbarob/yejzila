@@ -30,7 +30,11 @@ export default function RootLayout({ children }) {
                     key="og-description"
                 />
 
-                <meta property="og:site_name" content="Yejzila" key="og-site" />
+                <meta
+                    property="og:site_name"
+                    content="Yejzila Resources Limited"
+                    key="og-site"
+                />
 
                 <meta
                     property="og:image"
@@ -56,7 +60,7 @@ export default function RootLayout({ children }) {
                     content="summary_large_image"
                     key="tw-card"
                 />
-                <link rel="shortcut icon" href="/favicon.ico" />
+                <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="relative flex-col flex">
                 <body className={open_san.className}>{children}</body>
