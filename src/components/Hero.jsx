@@ -15,20 +15,27 @@ import { Button } from "./ui/button";
 
 const CarouselImages = [
     {
-        image: "/assets/hero-1.png",
-        title: "Oil, Gas, Energy, and Mining",
+        image: "/assets/carousel1.jpg",
+        title: "Oil, Gas, Energy and Mining",
         text: "We power your future. We develop and deliver innovative solutions for the energy and mining industries..",
         buttontext: "Learn More",
     },
     {
-        image: "/assets/hero-2.png",
-        title: "Oil, Gas, Energy, and Mining",
+        image: "/assets/carousel4.png",
+        title: "Oil & Gas",
+        text: "We power your future. We develop and deliver innovative solutions for the energy and mining industries..",
+        buttontext: "Learn More",
+    },
+
+    {
+        image: "/assets/carousel2.jpg",
+        title: "Renewable Energy",
         text: "We power your future. We develop and deliver innovative solutions for the energy and mining industries..",
         buttontext: "Learn More",
     },
     {
-        image: "/assets/hero-4.png",
-        title: "Oil, Gas, Energy, and Mining",
+        image: "/assets/carousel3.jpg",
+        title: "Mining",
         text: "We power your future. We develop and deliver innovative solutions for the energy and mining industries..",
         buttontext: "Learn More",
     },
@@ -52,9 +59,7 @@ export default function Hero() {
                 autoplay
                 modules={[Autoplay, Pagination, Navigation]}
                 spaceBetween={50}
-                slidesPerView={1}
-                onSlideChange={() => console.log("slide change")}
-                onSwiper={(swiper) => console.log(swiper)}>
+                slidesPerView={1}>
                 {CarouselImages.map((image, i) => (
                     <SwiperSlide key={image} className="relative">
                         <Image
@@ -63,21 +68,22 @@ export default function Hero() {
                             width={100}
                             height={100}
                             priority
+                            // quality={100}
                             sizes="100"
-                            className="w-full h-full object-cover absolute inset-x-0 inset-y-0 z-10"
+                            className="w-full h-full object-center object-cover  absolute inset-x-0 inset-y-0 z-10"
                         />
-                        <div className="z-50 h-full flex flex-col justify-center items-start gap-4 absolute  inset-x-0 inset-y-0 px-10 lg:px-40">
+                        <div className="z-50 h-full flex flex-col justify-end items-start gap-4 absolute  inset-x-0 bottom-52 px-10 lg:px-40">
                             <h2 className="text-3xl lg:text-6xl text-white font-bold">
                                 {image?.title}
                             </h2>
                             <h6 className="text-lg lg:text-xl text-white font-semibold">
                                 {image?.text}
                             </h6>
-                            <Button
+                            {/* <Button
                                 variant={"ghost"}
                                 className="border text-primary100 bg-white">
                                 {image?.buttontext}
-                            </Button>
+                            </Button> */}
                         </div>
                     </SwiperSlide>
                 ))}

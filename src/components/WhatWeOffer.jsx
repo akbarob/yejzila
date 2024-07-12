@@ -28,7 +28,7 @@ export default function WhatWeOffer() {
                 className="font-semibold text-4xl text-left">
                 What we offer
             </motion.h3>
-            <p className="w-full max-w-[600px] text-slate-600 mb-14 text-lg">
+            <p className="w-full  text-slate-600 mb-14 text-lg">
                 <span className="text-primary100 font-bold text-2xl">
                     Yejzila
                 </span>{" "}

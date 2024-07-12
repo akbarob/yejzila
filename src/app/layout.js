@@ -1,9 +1,11 @@
-import { Open_Sans } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 
-const open_san = Open_Sans({ subsets: ["latin"] });
-
+const roboto = Roboto({
+    subsets: ["latin"],
+    weight: ["100", "300", "400", "500", "700", "900"],
+});
 export const metadata = {
     title: "Yejzila Resources Limited",
     description: "Yejzila Resources Limited, Unlocking Brilliance ",
@@ -84,7 +86,7 @@ export default function RootLayout({ children }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head> */}
             <div className="relative flex-col flex">
-                <body className={open_san.className}>{children}</body>
+                <body className={roboto.className}>{children}</body>
             </div>
         </html>
     );
