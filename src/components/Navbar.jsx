@@ -29,14 +29,14 @@ export default function Navbar() {
                 navbarBg
                     ? "backdrop-blur-sm  text-black border-b border-b-primary100"
                     : "-mt-[80px] text-white"
-            } flex  justify-between px-10 lg:px-28 xl:px-40 items-center`}>
+            } flex  justify-between pl-5 pr-10 lg:px-28 xl:px-40 items-center`}>
             <Image
                 src="/assets/Navlogo.svg"
                 alt="logo"
                 width={100}
                 height={100}
                 sizes="100"
-                className="w-[200px] h-[220px] object-contain"
+                className="w-[100px] lg:w-[150px] h-[150px] object-contain "
             />
             {/* DESKTOP NAV */}
             <ul className="hidden lg:flex gap-10 justify-end  text-md w-full">
