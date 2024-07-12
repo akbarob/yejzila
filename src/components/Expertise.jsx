@@ -30,16 +30,6 @@ export default function Expertise() {
             desc: "We prioritize sustainability in all our operations, minimizing environmental impact and promoting responsible resource management.",
         },
     ];
-    inView("li", () => {
-        animate(
-            console.log("The link  ", " has entered the viewport"),
-            { opacity: 1, scale: 0.3, filter: "blur(20px)" },
-            {
-                duration: 0.2,
-                delay: staggerMenuItems,
-            }
-        );
-    });
 
     const ref = useRef(null);
     const isInView = useInView(ref);
