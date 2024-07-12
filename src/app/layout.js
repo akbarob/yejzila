@@ -40,20 +40,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <Head>
+            {/* <Head>
                 <title>{metadata.title}</title>
 
-                {/* <meta
-                    property="og:image"
-                    content="https://www.imghippo.com/i/iglOM1720687574.png"
-                />
-
-                <meta
-                    name="twitter:image"
-                    content="https://www.imghippo.com/i/iglOM1720687574.png"
-                /> */}
-
-                {/* test */}
+               
                 <meta property="og:title" content={metadata.title} />
                 <meta
                     property="og:description"
@@ -92,7 +82,7 @@ export default function RootLayout({ children }) {
                     content="https://www.imghippo.com/i/iglOM1720687574.png"
                 />
                 <link rel="icon" href="/favicon.ico" />
-            </Head>
+            </Head> */}
             <div className="relative flex-col flex">
                 <body className={open_san.className}>{children}</body>
             </div>

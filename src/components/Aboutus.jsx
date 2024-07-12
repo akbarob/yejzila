@@ -76,7 +76,7 @@ export default function Aboutus() {
                     animate={isInView ? "visible" : ""}
                     variants={titleVariants}
                     className="font-semibold text-4xl text-left">
-                    About Our Company
+                    About Us
                 </motion.h3>
 
                 <p className="w-full max-w-[800px] text-lg text-slate-600">
