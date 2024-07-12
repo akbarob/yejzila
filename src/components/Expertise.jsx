@@ -76,10 +76,9 @@ export default function Expertise() {
                 </h3>
 
                 <p className="w-full max-w-[800px] text-lg text-slate-600">
-                    Our team of experienced professionals possesses a deep
-                    understanding of the complexities of the energy and mining
-                    industries, enabling us to deliver innovative and effective
-                    solutions.
+                    Yejzila Resources Limited is a company with a broad diverse
+                    portfolio within the energy and natural resources sectors
+                    that specializes in oil, gas, energy, and mining.
                 </p>
                 <motion.ul
                     className="flex flex-col gap-4"
@@ -92,14 +91,14 @@ export default function Expertise() {
                         <motion.li
                             variants={itemVariants}
                             key={i}
-                            className="flex justify-center items-start gap-4">
+                            className="flex justify-center items-start gap-8">
                             <span className=" p-6 w-[40px] h-[40px] rounded-[6px] bg-primary100 flex justify-center items-center">
                                 {item?.id}
                             </span>
 
                             <div>
                                 {" "}
-                                <h3 className="font-semibold text-4xl text-left">
+                                <h3 className="font-semibold text-3xl text-left">
                                     {item?.title}{" "}
                                 </h3>
                                 <p className="w-full max-w-[800px] text-lg text-slate-600">

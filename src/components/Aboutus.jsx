@@ -54,16 +54,16 @@ export default function Aboutus() {
     };
     const Grid = [
         {
-            title: "History",
-            text: "With decades of experience, we have established a strong foundation in the industry, constantly innovating and adapting to meet the evolving needs of our customers.",
-        },
-        {
-            title: "Values",
-            text: "Integrity, safety, innovation, and sustainability guide our every action fostering a culture of excellence and responsibility.",
+            title: "Vision",
+            text: "To be the leading provider of comprehensive servicing solutions in the oil, gas, energy, and mining industries, recognized for our dedication to safety, sustainability, and technological advancement.",
         },
         {
             title: "Mission",
-            text: "We strive to provide reliable, affordable energy solutions while minimizing our environmental impact and creating a positive legacy for future generations.",
+            text: "To enhance operational efficiency, ensure safety and minimize environmental impact by leveraging advanced technologies, industry expertise to deliver innovative and sustainable solutions while commitment to excellence.",
+        },
+        {
+            title: "Value",
+            text: "Core values for an oil, gas, energy, and mining servicing firm often reflect a commitment to safety, environmental responsibility, innovation, and integrity. ",
         },
     ];
     return (
@@ -79,10 +79,19 @@ export default function Aboutus() {
                     About Us
                 </motion.h3>
 
-                <p className="w-full max-w-[800px] text-lg text-slate-600">
-                    We are a global leader in oil and gas exploration,
-                    production, and distribution, with a commitment to
-                    responsible and sustainable practices.
+                <p className="w-full  text-lg text-slate-600">
+                    <span className="text-primary100 text-2xl">
+                        Yejzila Resources Limited
+                    </span>{" "}
+                    is a company operating in the oil, gas, energy, and mining
+                    sectors. The company is engaged in the exploration,
+                    extraction, and distribution of natural resources. Yejzila
+                    Resources Limited focuses on sustainable practices and
+                    innovative technologies to maximize resource utilization
+                    while minimizing environmental impact. The company is
+                    committed to safety, efficiency, and regulatory compliance,
+                    aiming to contribute to the global energy supply and
+                    economic growth.
                 </p>
 
                 <div
@@ -103,7 +112,7 @@ export default function Aboutus() {
                                 <p className="font-semibold text-xl">
                                     {item.title}
                                 </p>
-                                <p className="text-left text-lg leading-[25.3px] tracking-wide line-clamp-5 text-slate-600">
+                                <p className="text-left text-md leading-[25.3px] tracking-wide line-clamp-6 text-slate-600 text-">
                                     {item.text}
                                 </p>
                             </motion.div>

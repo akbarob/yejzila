@@ -27,7 +27,7 @@ export default function Navbar() {
         <nav
             className={`z-50 sticky top-0 h-[80px] w-full ${
                 navbarBg
-                    ? "backdrop-blur-sm  text-black border-b border-b-primary100"
+                    ? "backdrop-blur-sm  text-black border-b-2 border-b-primary100"
                     : "-mt-[80px] text-white"
             } flex  justify-between pl-5 pr-10 lg:px-28 xl:px-40 items-center`}>
             <Image
@@ -57,11 +57,4 @@ export default function Navbar() {
     );
 }
 
-const links = [
-    "Home",
-    "About Us",
-    "Projects",
-    "Blog",
-    "Services",
-    "Contact Us",
-];
+const links = ["Home", "About Us", "Projects", "Services", "Contact Us"];
