@@ -15,10 +15,10 @@ export default function Home() {
                 {" "}
                 <Hero />
             </div>
-            <div>
+            <div id="aboutus">
                 <Aboutus />
             </div>
-            <div>
+            <div id="services">
                 <OurServices />
             </div>
             <div>
@@ -27,8 +27,10 @@ export default function Home() {
             <div>
                 <WhatWeOffer />
             </div>
-
-            <Footer />
+            <div className="" id="contactus">
+                {" "}
+                <Footer />
+            </div>
         </main>
     );
 }

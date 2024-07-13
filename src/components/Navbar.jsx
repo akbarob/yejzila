@@ -3,6 +3,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import MobileNav from "./MobileNav";
+import Link from "next/link";
 
 export default function Navbar() {
     const [scrollY, setScrollY] = useState(0);
@@ -73,7 +74,7 @@ export default function Navbar() {
                     <li
                         key={link}
                         className="hover:text-primary100 cursor-pointer transition-all ease-in duration700 font-semibold p-2 hover:border-b hover:border-b-primary100">
-                        {link}
+                        <Link href={link?.link}>{link.title}</Link>
                     </li>
                 ))}
             </ul>
@@ -86,4 +87,10 @@ export default function Navbar() {
     );
 }
 
-const links = ["Home", "About Us", "Projects", "Services", "Contact Us"];
+const links = [
+    { title: "Home", link: "/" },
+    { title: "About us", link: "#aboutus" },
+    { title: "Projects", link: "/" },
+    { title: "Services", link: "#services" },
+    { title: "Contact Us", link: "#contactus" },
+];

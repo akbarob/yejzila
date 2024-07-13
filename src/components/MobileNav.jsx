@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/sheet";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function MobileNav({ links, navbarBg }) {
     function getCurrentYear() {
@@ -54,11 +55,12 @@ export default function MobileNav({ links, navbarBg }) {
                     <div className="flex flex-col justify-start  h-full gap-4 py-4 ">
                         <ul className="flex flex-col justify-center items-center gap-4 ">
                             {links.map((link, i) => (
-                                <li
-                                    key={link}
+                                <Link
+                                    href={link?.link}
+                                    key={link.title}
                                     className="text-left p-2 bg-primary100/20 hover:text-primary100 font-medium w-full rounded">
-                                    {link}
-                                </li>
+                                    <>{link?.title}</>
+                                </Link>
                             ))}
                         </ul>
                     </div>
