@@ -30,6 +30,21 @@ export default function Expertise() {
             desc: "We prioritize sustainability in all our operations, minimizing environmental impact and promoting responsible resource management.",
         },
     ];
+    const ref1 = useRef(null);
+    const isInView1 = useInView(ref1);
+    const titleVariants = {
+        hidden: {
+            opacity: 0,
+            x: -100, // Start off-screen to the left
+        },
+        visible: {
+            opacity: 1,
+            x: 0, // Move to original position
+            transition: {
+                duration: 0.5, // Duration of the transition
+            },
+        },
+    };
 
     const ref = useRef(null);
     const isInView = useInView(ref);
@@ -71,9 +86,14 @@ export default function Expertise() {
                 />
             </div>
             <div className="flex flex-col gap-8  lg:w-1/2">
-                <h3 className="font-semibold text-4xl text-left">
+                <motion.h3
+                    ref={ref1}
+                    initial="hidden"
+                    animate={isInView1 ? "visible" : ""}
+                    variants={titleVariants}
+                    className="font-semibold text-4xl text-left">
                     Our Expertise
-                </h3>
+                </motion.h3>
 
                 <p className="w-full max-w-[800px] text-lg text-slate-600">
                     Yejzila Resources Limited is a company with a broad diverse
@@ -92,7 +112,7 @@ export default function Expertise() {
                             variants={itemVariants}
                             key={i}
                             className="flex justify-center items-start gap-8">
-                            <span className=" p-6 w-[40px] h-[40px] rounded-[6px] bg-primary100 flex justify-center items-center">
+                            <span className=" p-6 w-[40px] h-[40px] rounded-[6px] bg-primary100 flex justify-center items-center text-white">
                                 {item?.id}
                             </span>
 
