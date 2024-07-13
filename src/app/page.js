@@ -28,7 +28,7 @@ export default function Home() {
                 <WhatWeOffer />
             </div>
 
-            {/* <Footer /> */}
+            <Footer />
         </main>
     );
 }

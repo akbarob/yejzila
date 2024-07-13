@@ -32,7 +32,7 @@ export default function Aboutus() {
         },
     };
     const leftVariants = {
-        hidden: { opacity: 0, x: -20 },
+        hidden: { x: -20 },
         visible: {
             opacity: 1,
             x: 0,
@@ -48,7 +48,7 @@ export default function Aboutus() {
             opacity: 1,
             x: 0,
             transition: {
-                duration: 0.5,
+                duration: 2,
             },
         },
     };
@@ -104,11 +104,12 @@ export default function Aboutus() {
                             : rightVariants;
                         return (
                             <motion.div
-                                className="w-[300px] md:w-full shadow border rounded-[6px] bg-primary100/20 hover:bg-primary100 hover:scale-105 transition-all duration-700 ease-in-out flex flex-col p-6 h-[250px] gap-4"
+                                className="max-w-[350px] hover:text-white md:w-full shadow shadow-primary100/50  rounded-[6px] bg-primary100/20 hover:bg-primary100 hover:scale-105 transition-all duration-700 ease-in-out flex flex-col p-6 h-[250px] gap-4"
                                 key={i}
-                                initial="hidden"
-                                animate={isInView2 ? "visible" : "null"}
-                                variants={itemVariants}>
+                                // initial="hidden"
+                                // animate={isInView2 ? "visible" : "null"}
+                                // variants={itemVariants}
+                            >
                                 <p className="font-semibold text-xl">
                                     {item.title}
                                 </p>

@@ -17,6 +17,9 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import Image from "next/image";
 
 export default function MobileNav({ links, navbarBg }) {
+    function getCurrentYear() {
+        return new Date().getFullYear();
+    }
     const [open, setOpen] = useState(false);
     return (
         <div className="lg:hidden">
@@ -35,7 +38,7 @@ export default function MobileNav({ links, navbarBg }) {
                 </SheetTrigger>
                 <SheetContent className="flex flex-col justify-between">
                     <SheetHeader>
-                        <SheetTitle className="text-center">
+                        <SheetTitle className="text-center ">
                             {" "}
                             <Image
                                 src="/assets/Navlogo.svg"
@@ -64,7 +67,7 @@ export default function MobileNav({ links, navbarBg }) {
                             <Button type="submit">Save changes</Button>
                         </SheetClose>
                     </SheetFooter> */}
-                    <div>© Copyright - Yejzila™️</div>
+                    <div>© Copyright - Yejzila™️ {getCurrentYear()}</div>
                 </SheetContent>
             </Sheet>
         </div>
