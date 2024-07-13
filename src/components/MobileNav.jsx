@@ -23,7 +23,7 @@ export default function MobileNav({ links, navbarBg }) {
     }
     const [open, setOpen] = useState(false);
     return (
-        <div className="lg:hidden">
+        <div className="lg:hidden ">
             {" "}
             <Sheet open={open} onOpenChange={setOpen}>
                 <SheetTrigger asChild>
@@ -33,11 +33,11 @@ export default function MobileNav({ links, navbarBg }) {
                             !navbarBg
                                 ? "border-white"
                                 : "border-primary100 text-primary100"
-                        } border-2 hover:bg-transparent `}>
+                        } border-2 hover:bg-transparent hover:text-primary100`}>
                         <RxHamburgerMenu size={25} color="" />
                     </Button>
                 </SheetTrigger>
-                <SheetContent className="flex flex-col justify-between">
+                <SheetContent className="flex flex-col justify-between bg-slate-100">
                     <SheetHeader>
                         <SheetTitle className="text-center ">
                             {" "}
@@ -69,7 +69,9 @@ export default function MobileNav({ links, navbarBg }) {
                             <Button type="submit">Save changes</Button>
                         </SheetClose>
                     </SheetFooter> */}
-                    <div>© Copyright - Yejzila™️ {getCurrentYear()}</div>
+                    <div className="text-center text-primary100 font-semibold">
+                        © Copyright - Yejzila™️ {getCurrentYear()}
+                    </div>
                 </SheetContent>
             </Sheet>
         </div>
