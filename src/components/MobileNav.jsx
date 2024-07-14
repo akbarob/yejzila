@@ -58,7 +58,8 @@ export default function MobileNav({ links, navbarBg }) {
                                 <Link
                                     href={link?.link}
                                     key={link.title}
-                                    className="text-left p-2 bg-primary100/20 hover:text-primary100 font-medium w-full rounded">
+                                    className="text-left p-2 bg-primary100/20 hover:text-primary100 font-medium w-full rounded"
+                                    onClick={() => setOpen(false)}>
                                     <>{link?.title}</>
                                 </Link>
                             ))}

@@ -26,13 +26,13 @@ export default function Footer() {
                         <a href="mailto:info@yejzila.com">info@yejzila.com</a>
                     </p>
                     <p>
-                        Phone: <a href="">+234</a>
+                        Phone: <a href="">+234 903 614 3222</a>
                     </p>{" "}
-                    <p>
+                    {/* <p>
                         Phone: <a href="">+1</a>
-                    </p>{" "}
+                    </p>{" "} */}
                     <p>
-                        Phone: <a href="">+44</a>
+                        Phone: <a href="">+44 744 243 7146</a>
                     </p>
                 </div>
             </div>
