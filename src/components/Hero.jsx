@@ -17,20 +17,20 @@ const CarouselImages = [
     {
         image: "/assets/carousel1.jpg",
         title: "Oil, Gas, Energy and Mining",
-        text: "We power your future. We develop and deliver innovative solutions for the energy and mining industries..",
+        text: "We power your future. We develop and deliver innovative solutions for the energy and mining industries.",
         buttontext: "Learn More",
     },
     {
         image: "/assets/carousel4.png",
         title: "Oil & Gas",
-        text: "Unleashing energy for a secured Tomorrow",
+        text: "Unleashing energy for a secured Tomorrow.",
         buttontext: "Learn More",
     },
 
     {
         image: "/assets/carousel2.jpg",
         title: "Renewable Energy",
-        text: "Harnessing nature’s power through Infinite Possibilitie",
+        text: "Harnessing nature’s power through Infinite Possibilities.",
         buttontext: "Learn More",
     },
     {
