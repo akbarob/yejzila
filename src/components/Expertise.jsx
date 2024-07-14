@@ -47,7 +47,7 @@ export default function Expertise() {
     };
 
     const ref = useRef(null);
-    const isInView = useInView(ref);
+    const isInView = useInView(ref, { once: true });
     // Define the container variants
     const containerVariants = {
         hidden: { opacity: 1 },

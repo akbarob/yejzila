@@ -85,9 +85,11 @@ export default function RootLayout({ children }) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head> */}
-            <div className="relative flex-col flex">
-                <body className={roboto.className}>{children}</body>
-            </div>
+            {/* <div className=""> */}
+            <body className={`${roboto.className} relative flex-col flex`}>
+                {children}
+            </body>
+            {/* </div> */}
         </html>
     );
 }
