@@ -72,11 +72,11 @@ export default function Hero() {
                             sizes="100"
                             className="w-full h-full object-center object-cover  absolute inset-x-0 inset-y-0 z-10"
                         />
-                        <div className="z-50 h-full flex flex-col justify-end items-start gap-4 absolute  inset-x-0 bottom-52 px-10 lg:px-40">
+                        <div className="z-50  flex flex-col justify-end items-start gap-4 absolute  inset-x-0 top-52 px-10 lg:px-40">
                             <h2 className="text-3xl lg:text-6xl text-white font-bold">
                                 {image?.title}
                             </h2>
-                            <h6 className="text-lg lg:text-xl text-white font-semibold">
+                            <h6 className="text-lg lg:text-xl text-white font-medium ">
                                 {image?.text}
                             </h6>
                             {/* <Button
