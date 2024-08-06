@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yejzila.com/sitemap.xml
