@@ -1,47 +1,58 @@
-import { Roboto } from "next/font/google";
-import "./globals.css";
-import Head from "next/head";
+import { Roboto } from 'next/font/google';
+import './globals.css';
+import Head from 'next/head';
 
 const roboto = Roboto({
-    subsets: ["latin"],
-    weight: ["100", "300", "400", "500", "700", "900"],
+    subsets: ['latin'],
+    weight: ['100', '300', '400', '500', '700', '900'],
 });
 export const metadata = {
-    title: "Yejzila Resources Limited",
-    description: "Yejzila Resources Limited, Unlocking Brilliance ",
+    metadataBase: new URL('https://yejzila.com'),
+    title: 'Yejzila Resources Limited',
+    description: 'Yejzila Resources Limited, Unlocking Brilliance ',
+    alternates: {
+        canonical: '/',
+        languages: {
+            'en-US': '/en-US',
+            'de-DE': '/de-DE',
+        },
+    },
     openGraph: {
-        title: "Yejzila Resources Limited",
-        description: "Yejzila Resources Limited, Unlocking Brilliance ",
-        url: "https://yejzila.com",
-        siteName: "Yejzila",
+        title: 'Yejzila Resources Limited',
+        description: 'Yejzila Resources Limited, Unlocking Brilliance ',
+        url: 'https://yejzila.com',
+        siteName: 'Yejzila',
         images: [
             {
-                url: "https://www.imghippo.com/i/iglOM1720687574.png", // Must be an absolute URL
+                url: 'https://www.imghippo.com/i/iglOM1720687574.png', // Must be an absolute URL
                 width: 800,
                 height: 600,
             },
             {
-                url: "https://https://www.imghippo.com/i/iglOM1720687574.png", // Must be an absolute URL
+                url: 'https://https://www.imghippo.com/i/iglOM1720687574.png', // Must be an absolute URL
                 width: 1800,
                 height: 1600,
-                alt: "jajzilaimage",
+                alt: 'jajzilaimage',
             },
         ],
-        locale: "en_US",
-        type: "website",
+        locale: 'en_US',
+        type: 'website',
     },
     twitter: {
-        card: "summary_large_image",
-        title: "Yejzila Resources Limited",
-        description: "Yejzila Resources Limited, Unlocking Brilliance",
-        creator: "@akbar_ob",
-        images: ["https://www.imghippo.com/i/iglOM1720687574.png"], // Must be an absolute URL
+        card: 'summary_large_image',
+        title: 'Yejzila Resources Limited',
+        description: 'Yejzila Resources Limited, Unlocking Brilliance',
+        creator: '@akbar_ob',
+        images: {
+            url: 'https://www.imghippo.com/i/iglOM1720687574.png',
+            alt: 'Yejzila Logo',
+        },
     },
 };
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en">
+        <html lang='en'>
             {/* <Head>
                 <title>{metadata.title}</title>
 
