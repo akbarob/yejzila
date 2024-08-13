@@ -12,5 +12,3 @@ Host: https://www.yejzila.com
 
 # Sitemaps
 Sitemap: https://www.yejzila.com/sitemap.xml
-Sitemap: https://www.yejzila.com/my-custom-sitemap-1.xml
-Sitemap: https://www.yejzila.com/my-custom-sitemap-2.xml
