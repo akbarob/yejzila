@@ -11,9 +11,9 @@ module.exports = {
             { userAgent: '*', allow: '/' },
             { userAgent: 'Googlebot', allow: '/', disallow: ['/admin'] },
         ],
-        additionalSitemaps: [
-            'https://www.yejzila.com/my-custom-sitemap-1.xml',
-            'https://www.yejzila.com/my-custom-sitemap-2.xml',
-        ],
+        // additionalSitemaps: [
+        //     'https://www.yejzila.com/my-custom-sitemap-1.xml',
+        //     'https://www.yejzila.com/my-custom-sitemap-2.xml',
+        // ],
     },
 };

@@ -7,8 +7,9 @@ const roboto = Roboto({
 });
 export const metadata = {
     metadataBase: new URL('https://yejzila.com'),
-    title: 'Yejzila Resources Limited',
-    description: 'Yejzila Resources Limited, Unlocking Brilliance ',
+    title: 'A company with diverse portfolio specialized in Oil, Gas, Energy and Mininig Services.',
+    description:
+        'YEJZILA company is engaged in providing a wide range of specialized services like exploration, extraction and distribution of natural resources that reflect a commitment to environmental sustainability.',
     alternates: {
         canonical: '/',
         languages: {
