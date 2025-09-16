@@ -7,7 +7,7 @@ function getCurrentYear() {
 
 export default function Footer() {
     return (
-        <div className='bg-black h-full  text-white px-10 lg:px-40 space-y-8'>
+        <div className='bg-black h-full  text-white px-10 lg:px-40 space-y-8 py-10'>
             <div className='flex flex-col lg:flex-row justify-between lg:items-center '>
                 <div>
                     <Image
@@ -26,10 +26,23 @@ export default function Footer() {
                         <a href='mailto:info@yejzila.com'>info@yejzila.com</a>
                     </p>
                     <p>
-                        NG: <a href='tel:+2349036143222'>+234 903 614 3222</a>
+                        Phone:{' '}
+                        <a href='tel:+2349036143222'>+234 903 614 3222</a>
                     </p>
                     <p>
-                        UK: <a href='tel:+447442437146'>+44 744 243 7146</a>
+                        website:{' '}
+                        <a href='https://www.yejzila.com/'>www.yejzila.com</a>
+                    </p>
+                    <p>
+                        Address:{' '}
+                        <a
+                            href='https://maps.google.com/?q=40+Shedrack+Avenue,+Apamini+Estate,+Rockword+Junction,+Elelenwo,+Port+Harcourt'
+                            target='_blank'
+                            rel='noopener noreferrer'>
+                            40 Shedrack Avenue, <br /> Apamini Estate,
+                            <br /> Rockword Junction, <br /> Elelenwo, Port
+                            Harcourt
+                        </a>
                     </p>
 
                     <a

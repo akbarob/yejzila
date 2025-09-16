@@ -28,7 +28,10 @@ const CarouselImages = [
     },
 
     {
-        image: '/assets/carousel2.jpg',
+        // image: '/assets/carousel2.jpg',
+        // image: '/assets/photovoltaic-4525178_1920.jpg',
+        image: '/assets/photovoltaic-system-2742302_1920.jpg',
+        // image: '/assets/cesc-banner.webp',
         title: 'Renewable Energy',
         text: 'Harnessing nature’s power through Infinite Possibilities.',
         buttontext: 'Learn More',
