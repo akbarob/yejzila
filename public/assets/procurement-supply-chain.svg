@@ -1,0 +1,60 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="procurementGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.2" />
+    </linearGradient>
+    <linearGradient id="boxGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#procurementGradient)" rx="20"/>
+  
+  <!-- Supply chain boxes -->
+  <rect x="50" y="80" width="60" height="50" fill="url(#boxGradient)" rx="8"/>
+  <rect x="170" y="80" width="60" height="50" fill="url(#boxGradient)" rx="8"/>
+  <rect x="290" y="80" width="60" height="50" fill="url(#boxGradient)" rx="8"/>
+  
+  <!-- Warehouse/Storage -->
+  <rect x="150" y="180" width="100" height="80" fill="url(#boxGradient)" rx="8"/>
+  <polygon points="150,180 200,140 250,180" fill="#1e40af"/>
+  
+  <!-- Supply chain arrows -->
+  <path d="M110 105 L170 105" stroke="#1e40af" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <path d="M230 105 L290 105" stroke="#1e40af" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Vertical arrows to warehouse -->
+  <path d="M80 130 L80 160 L150 160" stroke="#1e40af" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <path d="M200 130 L200 160" stroke="#1e40af" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <path d="M320 130 L320 160 L250 160" stroke="#1e40af" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1e40af"/>
+    </marker>
+  </defs>
+  
+  <!-- Gear icons for optimization -->
+  <g transform="translate(60,90)">
+    <circle cx="20" cy="15" r="12" fill="white" opacity="0.9"/>
+    <path d="M20,8 L22,10 L20,12 L18,10 Z M28,15 L26,13 L24,15 L26,17 Z M20,22 L18,20 L20,18 L22,20 Z M12,15 L14,17 L16,15 L14,13 Z" fill="#1e40af"/>
+  </g>
+  
+  <!-- Truck icon -->
+  <g transform="translate(300,200)">
+    <rect x="0" y="10" width="40" height="20" fill="white" rx="4"/>
+    <rect x="35" y="5" width="15" height="15" fill="white" rx="2"/>
+    <circle cx="10" cy="35" r="5" fill="#1e40af"/>
+    <circle cx="40" cy="35" r="5" fill="#1e40af"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="200" y="40" text-anchor="middle" fill="#1e40af" font-family="Arial, sans-serif" font-size="18" font-weight="bold">
+    Procurement &amp; Supply Chain
+  </text>
+</svg>

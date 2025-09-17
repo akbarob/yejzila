@@ -21,27 +21,27 @@ export default function OurServices() {
     };
     const services = [
         {
-            image: '/assets/procurement.png',
+            image: '/assets/procurement-supply-chain.svg',
             title: 'Procurement & Supply Chain Solutions',
             text: 'Strategic sourcing of equipment, machinery & materials. Industrial tools, spare parts & consumables supply. Vendor management, import/export logistics, contract negotiation & cost optimization. Community-focused procurement services.',
         },
         {
-            image: '/assets/procurement.png',
+            image: '/assets/oil-gas-services.svg',
             title: 'Oil & Gas Services',
             text: 'Oilfield equipment, drilling tools & rigs procurement. Chemicals, lubricants & petroleum products supply. EPC support, marine logistics & offshore services. MRO solutions & technical manpower for oil & gas projects.',
         },
         {
-            image: '/assets/procurement.png',
+            image: '/assets/energy-services.svg',
             title: 'Energy Services',
             text: 'Renewable energy solutions (solar, wind, hydro). Power generation equipment & electrical infrastructure supply. Energy efficiency consulting & backup power solutions. Technical training & manpower in energy sector.',
         },
         {
-            image: '/assets/procurement.png',
+            image: '/assets/mining-mineral-resources.svg',
             title: 'Mining & Mineral Resources',
             text: 'Mining equipment, heavy machinery & spare parts supply. Geological survey support & exploration logistics. Safety equipment for mining sites. Community relations, consultancy & export facilitation services.',
         },
         {
-            image: '/assets/procurement.png',
+            image: '/assets/recruitment-workforce.svg',
             title: 'Recruitment & Workforce Solutions',
             text: 'Executive search & headhunting for industry roles. Technical manpower supply (Oil, Gas, Mining, Energy). Graduate placement programs & workforce training development.',
         },

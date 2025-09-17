@@ -80,17 +80,18 @@ export default function Aboutus() {
                 </motion.h3>
 
                 <p className='w-full  text-lg text-slate-600'>
-                    <span className='text-primary100 text-2xl'>YEJZILA</span>{' '}
-                    Resources Limited is a dynamic and customer-focused
-                    solutions provider with expertise across procurement, oil &
-                    gas, energy, mining, and workforce resourcing. With a strong
-                    commitment to excellence, innovation, and community
-                    development, we deliver value-driven services that support
-                    industries, foster growth, and ensure sustainable
-                    partnerships. Our approach combines local knowledge with
-                    global best practices, enabling us to meet diverse client
-                    needs while promoting efficiency, cost optimization, and
-                    reliability.
+                    <span className='text-primary100 text-2xl'>
+                        YEJZILA Resources Limited
+                    </span>{' '}
+                    is a dynamic and customer-focused solutions provider with
+                    expertise across procurement, oil & gas, energy, mining, and
+                    workforce resourcing. With a strong commitment to
+                    excellence, innovation, and community development, we
+                    deliver value-driven services that support industries,
+                    foster growth, and ensure sustainable partnerships. Our
+                    approach combines local knowledge with global best
+                    practices, enabling us to meet diverse client needs while
+                    promoting efficiency, cost optimization, and reliability.
                 </p>
 
                 <div
