@@ -1,6 +1,6 @@
 import { Roboto } from 'next/font/google';
 import './globals.css';
-
+import { Analytics } from '@vercel/analytics/next';
 const roboto = Roboto({
     subsets: ['latin'],
     weight: ['100', '300', '400', '500', '700', '900'],
@@ -10,7 +10,8 @@ export const metadata = {
     title: 'Yejzila Resources Limited - Premier Oil, Gas, Energy & Mining Solutions',
     description:
         'Yejzila Resources Limited delivers expert procurement, supply chain, and workforce solutions for Oil & Gas, Energy, Mining sectors. Strategic sourcing, EPC support, renewable energy, and technical manpower services across Nigeria and UK.',
-    keywords: 'Yejzila, oil and gas services, energy solutions, mining resources, procurement services, supply chain, workforce solutions, Nigeria, UK, renewable energy, technical manpower',
+    keywords:
+        'Yejzila, oil and gas services, energy solutions, mining resources, procurement services, supply chain, workforce solutions, Nigeria, UK, renewable energy, technical manpower',
     authors: [{ name: 'Yejzila Resources Limited' }],
     alternates: {
         canonical: 'https://www.yejzila.com',
@@ -20,7 +21,8 @@ export const metadata = {
     },
     openGraph: {
         title: 'Yejzila Resources Limited - Premier Oil, Gas, Energy & Mining Solutions',
-        description: 'Expert procurement, supply chain, and workforce solutions for Oil & Gas, Energy, Mining sectors. Unlocking Brilliance in Resource Management.',
+        description:
+            'Expert procurement, supply chain, and workforce solutions for Oil & Gas, Energy, Mining sectors. Unlocking Brilliance in Resource Management.',
         url: 'https://www.yejzila.com',
         siteName: 'Yejzila Resources Limited',
         images: [
@@ -37,7 +39,8 @@ export const metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'Yejzila Resources Limited - Premier Oil, Gas, Energy & Mining Solutions',
-        description: 'Expert procurement, supply chain, and workforce solutions for Oil & Gas, Energy, Mining sectors.',
+        description:
+            'Expert procurement, supply chain, and workforce solutions for Oil & Gas, Energy, Mining sectors.',
         creator: '@akbar_ob',
         images: {
             url: 'https://www.yejzila.com/twitter-image.jpg',
@@ -65,33 +68,35 @@ export default function RootLayout({ children }) {
         alternateName: 'Yejzila',
         url: 'https://www.yejzila.com',
         logo: 'https://www.yejzila.com/assets/Navlogo.svg',
-        description: 'Premier Oil, Gas, Energy & Mining Solutions provider offering expert procurement, supply chain, and workforce solutions.',
+        description:
+            'Premier Oil, Gas, Energy & Mining Solutions provider offering expert procurement, supply chain, and workforce solutions.',
         foundingDate: '2020',
         address: {
             '@type': 'PostalAddress',
-            streetAddress: '40 Shedrack Avenue, Apamini Estate, Rockword Junction',
+            streetAddress:
+                '40 Shedrack Avenue, Apamini Estate, Rockword Junction',
             addressLocality: 'Elelenwo',
             addressRegion: 'Port Harcourt',
-            addressCountry: 'Nigeria'
+            addressCountry: 'Nigeria',
         },
         contactPoint: [
             {
                 '@type': 'ContactPoint',
                 telephone: '+234-903-614-3222',
                 contactType: 'customer service',
-                areaServed: 'NG'
+                areaServed: 'NG',
             },
             {
                 '@type': 'ContactPoint',
                 telephone: '+44-744-243-7146',
                 contactType: 'customer service',
-                areaServed: 'GB'
-            }
+                areaServed: 'GB',
+            },
         ],
         email: 'info@yejzila.com',
         sameAs: [
             'https://www.linkedin.com/company/yejzila-resources/',
-            'https://www.instagram.com/yejzila_resources'
+            'https://www.instagram.com/yejzila_resources',
         ],
         serviceArea: ['Nigeria', 'United Kingdom'],
         hasOfferCatalog: {
@@ -103,55 +108,61 @@ export default function RootLayout({ children }) {
                     itemOffered: {
                         '@type': 'Service',
                         name: 'Procurement & Supply Chain Solutions',
-                        description: 'Strategic sourcing of equipment, machinery & materials'
-                    }
+                        description:
+                            'Strategic sourcing of equipment, machinery & materials',
+                    },
                 },
                 {
                     '@type': 'Offer',
                     itemOffered: {
                         '@type': 'Service',
                         name: 'Oil & Gas Services',
-                        description: 'Oilfield equipment, drilling tools & rigs procurement'
-                    }
+                        description:
+                            'Oilfield equipment, drilling tools & rigs procurement',
+                    },
                 },
                 {
                     '@type': 'Offer',
                     itemOffered: {
                         '@type': 'Service',
                         name: 'Energy Services',
-                        description: 'Renewable energy solutions and power generation equipment'
-                    }
+                        description:
+                            'Renewable energy solutions and power generation equipment',
+                    },
                 },
                 {
                     '@type': 'Offer',
                     itemOffered: {
                         '@type': 'Service',
                         name: 'Mining & Mineral Resources',
-                        description: 'Mining equipment, heavy machinery & spare parts supply'
-                    }
+                        description:
+                            'Mining equipment, heavy machinery & spare parts supply',
+                    },
                 },
                 {
                     '@type': 'Offer',
                     itemOffered: {
                         '@type': 'Service',
                         name: 'Recruitment & Workforce Solutions',
-                        description: 'Executive search & technical manpower supply'
-                    }
-                }
-            ]
-        }
+                        description:
+                            'Executive search & technical manpower supply',
+                    },
+                },
+            ],
+        },
     };
 
     return (
         <html lang='en'>
             <head>
                 <script
-                    type="application/ld+json"
+                    type='application/ld+json'
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
             </head>
             <body className={`${roboto.className} relative flex-col flex`}>
                 {children}
+                <Analytics />
             </body>
         </html>
     );
