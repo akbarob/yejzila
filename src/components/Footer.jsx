@@ -46,7 +46,7 @@ export default function Footer() {
                     </p>
 
                     <a
-                        href='https://www.instagram.com/yejzila_resources?igsh=ZWFicWtwN3psbGtn'
+                        href='https://www.instagram.com/yejzila/'
                         target='_blank'
                         rel='noopener noreferrer nofollow'
                         aria-label='Follow Yejzila Resources on Instagram'
