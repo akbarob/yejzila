@@ -16,15 +16,15 @@ import { Button } from './ui/button';
 const CarouselImages = [
     {
         image: '/assets/carousel1.jpg',
-        title: 'Oil, Gas, Energy and Mining',
-        text: 'We power your future, developing and delivering innovative solutions for the energy and mining industries.',
-        buttontext: 'Learn More',
+        title: 'Yejzila - Premier Oil, Gas, Energy & Mining Solutions',
+        text: 'Leading provider of innovative energy solutions, mining equipment, and industrial services. Powering your future with expert procurement and supply chain excellence.',
+        buttontext: 'Discover Our Services',
     },
     {
         image: '/assets/carousel4.png',
-        title: 'Oil & Gas',
-        text: 'Unleashing energy for a secured Tomorrow.',
-        buttontext: 'Learn More',
+        title: 'Yejzila Oil & Gas Services',
+        text: 'Comprehensive oilfield equipment, drilling tools, and energy infrastructure solutions. Unleashing energy potential for a secured tomorrow.',
+        buttontext: 'Explore Oil & Gas',
     },
 
     {
@@ -32,15 +32,15 @@ const CarouselImages = [
         // image: '/assets/photovoltaic-4525178_1920.jpg',
         image: '/assets/photovoltaic-system-2742302_1920.jpg',
         // image: '/assets/cesc-banner.webp',
-        title: 'Renewable Energy',
-        text: 'Harnessing nature’s power through Infinite Possibilities.',
-        buttontext: 'Learn More',
+        title: 'Yejzila Renewable Energy Solutions',
+        text: "Sustainable energy systems, solar power solutions, and green technology procurement. Harnessing nature's power through infinite possibilities for a cleaner future.",
+        buttontext: 'Go Green Today',
     },
     {
         image: '/assets/carousel3.jpg',
-        title: 'Mining',
-        text: "Unearthing Tomorrow's Resources Today with a lasting impact and a vision for the future",
-        buttontext: 'Learn More',
+        title: 'Yejzila Mining & Heavy Equipment Supply',
+        text: "Expert mining equipment procurement, heavy machinery supply, and mineral resource solutions. Unearthing tomorrow's resources today with lasting impact and future vision.",
+        buttontext: 'Mining Solutions',
     },
 ];
 export default function Hero() {
