@@ -36,11 +36,11 @@ export default function WhatWeOffer() {
                 comprehensive engineering solutions that redefine industry
                 standards.
             </p>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-                {offerings.map((offering, index) => (
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto'>
+                {offerings?.map((offering, index) => (
                     <motion.div
                         key={index}
-                        className='bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300'
+                        className='bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 border'
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}>
@@ -56,9 +56,9 @@ export default function WhatWeOffer() {
                         <h3 className='text-xl font-semibold text-gray-800 mb-3 text-center'>
                             {offering.title}
                         </h3>
-                        {/* <p className='text-gray-600 text-center leading-relaxed'>
+                        <p className='text-gray-600 text-center leading-relaxed'>
                             {offering.description}
-                        </p> */}
+                        </p>
                     </motion.div>
                 ))}
             </div>

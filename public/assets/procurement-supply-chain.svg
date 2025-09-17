@@ -53,8 +53,4 @@
     <circle cx="40" cy="35" r="5" fill="#1e40af"/>
   </g>
   
-  <!-- Title -->
-  <text x="200" y="40" text-anchor="middle" fill="#1e40af" font-family="Arial, sans-serif" font-size="18" font-weight="bold">
-    Procurement &amp; Supply Chain
-  </text>
 </svg>

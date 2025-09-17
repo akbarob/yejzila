@@ -46,10 +46,13 @@ export default function Footer() {
                     </p>
 
                     <a
-                        href='https://www.instagram.com/yejzila_resources?igsh=ZWFicWtwN3psbGtn '
-                        className='flex gap-2 justify-start items-center'>
-                        <FaInstagram />
-                        Instagram
+                        href='https://www.instagram.com/yejzila_resources?igsh=ZWFicWtwN3psbGtn'
+                        target='_blank'
+                        rel='noopener noreferrer nofollow'
+                        aria-label='Follow Yejzila Resources on Instagram'
+                        className='inline-flex gap-2 justify-start items-center px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50'>
+                        <FaInstagram className='text-lg' />
+                        <span className='font-medium'>Instagram</span>
                     </a>
                 </div>
             </div>
