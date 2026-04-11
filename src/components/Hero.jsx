@@ -60,8 +60,8 @@ export default function Hero() {
                 modules={[Autoplay, Pagination, Navigation]}
                 spaceBetween={50}
                 slidesPerView={1}>
-                {CarouselImages.map((image, i) => (
-                    <SwiperSlide key={image} className='relative'>
+                {CarouselImages?.map((image, i) => (
+                    <SwiperSlide key={i} className='relative'>
                         <Image
                             src={image?.image}
                             alt='hero'
