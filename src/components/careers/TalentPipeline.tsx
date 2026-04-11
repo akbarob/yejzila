@@ -85,7 +85,7 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
                         <RocketLaunch size={16} weight='bold' />
                         Always Open
                     </span>
-                    <h2 className='text-4xl md:text-5xl font-black text-gray-900 mb-2 tracking-tight'>
+                    <h2 className='text-4xl md:text-5xl font-semibold text-gray-900 mb-2 tracking-tight'>
                         Join our Talent Pipeline
                     </h2>
                     <p className='text-gray-500 font-medium text-lg leading-relaxed max-w-xl'>
@@ -126,7 +126,7 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
                                     }`}>
                                     <div className='flex justify-between items-start'>
                                         <span
-                                            className={`text-[9px] font-black px-2.5 py-1 rounded-full uppercase tracking-widest ${
+                                            className={`text-[9px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-widest ${
                                                 selectedCategoryId ===
                                                 category._id
                                                     ? 'bg-primary100 text-white'
@@ -145,7 +145,7 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
                                     </div>
 
                                     <h3
-                                        className={`text-lg font-semibold tracking-tight leading-tight transition-colors ${
+                                        className={`text-lg font-semibold capitalize tracking-tight leading-tight transition-colors ${
                                             selectedCategoryId === category._id
                                                 ? 'text-gray-900'
                                                 : 'text-gray-700'
@@ -155,7 +155,7 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
 
                                     <ul className='flex flex-col gap-2 text-[11px] font-normal text-gray-400'>
                                         <li className='flex items-center gap-2'>
-                                            <CalendarBlank
+                                            {/* <CalendarBlank
                                                 size={14}
                                                 className={
                                                     selectedCategoryId ===
@@ -163,8 +163,12 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
                                                         ? 'text-primary100'
                                                         : ''
                                                 }
-                                            />
-                                            <span>{category.description}</span>
+                                            /> */}
+                                            <span
+                                                title={category.description}
+                                                className='line-clamp-4'>
+                                                {category.description}
+                                            </span>
                                         </li>
                                         {/* <li className='flex items-center gap-2'>
                                             <MapPin
@@ -193,7 +197,7 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
                                     </ul>
 
                                     <div
-                                        className={`mt-2 inline-flex items-center justify-between w-full p-3.5 rounded-xl text-[11px] font-black transition-all ${
+                                        className={`mt-2 inline-flex items-center justify-between w-full p-3.5 rounded-xl text-[11px] font-semibold transition-all ${
                                             selectedCategoryId === category._id
                                                 ? 'bg-primary100 text-white'
                                                 : 'bg-white text-gray-900 border border-gray-100 group-hover:bg-primary100 group-hover:text-white'
@@ -270,7 +274,7 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
                 <div ref={formRef} className='lg:col-span-12 xl:col-span-5'>
                     <div className='sticky top-24 bg-white rounded-[40px] p-8 md:p-10 border-2 border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.04)]'>
                         <div className='mb-10 text-center'>
-                            <h3 className='text-2xl font-black text-gray-900 mb-2 tracking-tight'>
+                            <h3 className='text-2xl font-semibold text-gray-900 mb-2 tracking-tight'>
                                 Apply for{' '}
                                 {selectedCategory?.title || 'Pipeline'}
                             </h3>
