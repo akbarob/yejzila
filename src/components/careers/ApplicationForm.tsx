@@ -44,8 +44,11 @@ import { Button } from '@/components/ui/button';
 type FormStatus = 'idle' | 'loading' | 'success' | 'error';
 
 interface ApplicationFormProps {
-    jobId: string;
-    jobTitle: string;
+    jobId?: string;
+    jobTitle?: string;
+    categoryId?: string;
+    categoryTitle?: string;
+    applicationType: 'job' | 'pipeline';
 }
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
@@ -92,6 +95,9 @@ const formSchema = z.object({
 export default function ApplicationForm({
     jobId,
     jobTitle,
+    categoryId,
+    categoryTitle,
+    applicationType,
 }: ApplicationFormProps) {
     const [status, setStatus] = useState<FormStatus>('idle');
     const [errorMessage, setErrorMessage] = useState('');
@@ -123,7 +129,10 @@ export default function ApplicationForm({
         setErrorMessage('');
 
         const formData = new FormData();
-        formData.append('jobId', jobId);
+        formData.append('applicationType', applicationType);
+        if (jobId) formData.append('jobId', jobId);
+        if (categoryId) formData.append('categoryId', categoryId);
+        
         // Combine names into full name as expected by the API
         formData.append('fullName', `${values.firstName} ${values.lastName}`);
         formData.append('email', values.email);
@@ -177,7 +186,7 @@ export default function ApplicationForm({
                 <p className='text-gray-600 max-w-sm leading-relaxed'>
                     Thank you for applying for{' '}
                     <span className='text-primary100 font-semisemibold'>
-                        {jobTitle}
+                        {applicationType === 'job' ? jobTitle : `${categoryTitle} Pipeline`}
                     </span>
                     . We will review your profile and get back to you soon.
                 </p>

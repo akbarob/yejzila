@@ -331,6 +331,7 @@ export default async function JobDetailPage({
                                     <ApplicationForm
                                         jobId={job._id}
                                         jobTitle={job.title}
+                                        applicationType='job'
                                     />
                                 )}
                             </div>

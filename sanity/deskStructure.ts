@@ -23,6 +23,40 @@ export const deskStructure: StructureResolver = (S) =>
                 ),
 
             S.divider(),
+            
+            // ── Talent Pipeline ───────────────────────────────────────────
+            S.listItem()
+                .title('Talent Pipeline')
+                .icon(() => '🚀')
+                .child(
+                    S.list()
+                        .title('Talent Pipeline Management')
+                        .items([
+                            // Pipeline Categories (HR, Customer Service, etc.)
+                            S.listItem()
+                                .title('Pipeline Categories')
+                                .icon(() => '🏷️')
+                                .child(
+                                    S.documentTypeList('pipelineCategory')
+                                        .title('Management Categories')
+                                ),
+                            
+                            S.divider(),
+
+                            // Pipeline Applications specifically
+                            S.listItem()
+                                .title('Pipeline Submissions')
+                                .icon(() => '📥')
+                                .child(
+                                    S.documentTypeList('jobApplication')
+                                        .title('Pipeline Applications')
+                                        .filter('_type == "jobApplication" && applicationType == "pipeline"')
+                                        .defaultOrdering([{ field: 'appliedAt', direction: 'desc' }])
+                                ),
+                        ])
+                ),
+
+            S.divider(),
 
             // ── Applications — overview and status-based views ─────────────
             S.listItem()
@@ -41,10 +75,21 @@ export const deskStructure: StructureResolver = (S) =>
                                         .title('All Applications')
                                         .defaultOrdering([{ field: 'appliedAt', direction: 'desc' }])
                                 ),
+                            
+                            // Specific filter for standard job applications
+                            S.listItem()
+                                .title('Specific Job Apps')
+                                .icon(() => '💼')
+                                .child(
+                                    S.documentTypeList('jobApplication')
+                                        .title('Job Listings Applications')
+                                        .filter('_type == "jobApplication" && applicationType == "job"')
+                                        .defaultOrdering([{ field: 'appliedAt', direction: 'desc' }])
+                                ),
 
                             S.divider(),
 
-                            // New — just submitted, not yet reviewed
+                            // Status-based filters (applies to all types)
                             S.listItem()
                                 .title('🆕 New')
                                 .child(

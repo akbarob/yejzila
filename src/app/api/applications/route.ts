@@ -49,13 +49,29 @@ export async function POST(request: NextRequest) {
         const phone = formData.get('phone') as string | null;
         const coverLetter = formData.get('coverLetter') as string | null;
         const linkedinUrl = formData.get('linkedinUrl') as string | null;
-        const jobId = formData.get('jobId') as string;
+        const jobId = formData.get('jobId') as string | null;
+        const categoryId = formData.get('categoryId') as string | null;
+        const applicationType = (formData.get('applicationType') as string) || 'job';
         const resumeFile = formData.get('resume') as File | null;
 
         // Validate required fields before touching Sanity
-        if (!fullName?.trim() || !email?.trim() || !jobId?.trim()) {
+        if (!fullName?.trim() || !email?.trim()) {
             return NextResponse.json(
-                { message: 'Full name, email, and job ID are required.' },
+                { message: 'Full name and email are required.' },
+                { status: 400 }
+            );
+        }
+
+        if (applicationType === 'job' && !jobId?.trim()) {
+            return NextResponse.json(
+                { message: 'Job ID is required for job applications.' },
+                { status: 400 }
+            );
+        }
+
+        if (applicationType === 'pipeline' && !categoryId?.trim()) {
+            return NextResponse.json(
+                { message: 'Category ID is required for pipeline applications.' },
                 { status: 400 }
             );
         }
@@ -85,21 +101,31 @@ export async function POST(request: NextRequest) {
         }
 
         // ── Create jobApplication document ─────────────────────────────────
-        const applicationDoc = {
+        const applicationDoc: any = {
             _type: 'jobApplication',
+            applicationType,
             fullName: fullName.trim(),
             email: email.trim().toLowerCase(),
             phone: phone?.trim() || undefined,
             coverLetter: coverLetter?.trim() || undefined,
             linkedinUrl: linkedinUrl?.trim() || undefined,
             resume: resumeAssetRef,
-            jobListing: {
-                _type: 'reference',
-                _ref: jobId,
-            },
             status: 'new', // Default status — client updates this in Studio
             appliedAt: new Date().toISOString(),
         };
+
+        // Conditionally add references based on application type
+        if (applicationType === 'job' && jobId) {
+            applicationDoc.jobListing = {
+                _type: 'reference',
+                _ref: jobId,
+            };
+        } else if (applicationType === 'pipeline' && categoryId) {
+            applicationDoc.pipelineCategory = {
+                _type: 'reference',
+                _ref: categoryId,
+            };
+        }
 
         // Save the document to Sanity
         await writeClient.create(applicationDoc);

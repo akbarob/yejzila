@@ -61,12 +61,36 @@ export const jobApplication = defineType({
             type: 'url',
         }),
 
-        // Reference to the job listing this application belongs to
+        // Reference to the job listing this application belongs to - now optional
         defineField({
             name: 'jobListing',
             title: 'Job Listing',
             type: 'reference',
             to: [{ type: 'jobListing' }],
+            hidden: ({ document }) => document?.applicationType === 'pipeline',
+        }),
+
+        // Reference to the talent pipeline category - used if it's a pipeline application
+        defineField({
+            name: 'pipelineCategory',
+            title: 'Pipeline Category',
+            type: 'reference',
+            to: [{ type: 'pipelineCategory' }],
+            hidden: ({ document }) => document?.applicationType === 'job',
+        }),
+
+        // Discriminator field to easily distinguish between specific job and general pipeline apps
+        defineField({
+            name: 'applicationType',
+            title: 'Application Type',
+            type: 'string',
+            options: {
+                list: [
+                    { title: 'Specific Job', value: 'job' },
+                    { title: 'Talent Pipeline', value: 'pipeline' },
+                ],
+            },
+            initialValue: 'job',
             validation: (Rule) => Rule.required(),
         }),
 
@@ -96,11 +120,22 @@ export const jobApplication = defineType({
         }),
     ],
 
-    // Studio preview shows applicant name and which job they applied for
+    // Studio preview shows applicant name and which job/category they applied for
     preview: {
         select: {
-            title: 'fullName',
-            subtitle: 'jobListing.title',
+            fullName: 'fullName',
+            jobTitle: 'jobListing.title',
+            categoryTitle: 'pipelineCategory.title',
+            type: 'applicationType',
+        },
+        prepare({ fullName, jobTitle, categoryTitle, type }) {
+            const subtitle = type === 'pipeline' 
+                ? `🚀 Pipeline: ${categoryTitle || 'General'}`
+                : `💼 Job: ${jobTitle || 'Unassigned'}`;
+            return {
+                title: fullName,
+                subtitle,
+            };
         },
     },
 });

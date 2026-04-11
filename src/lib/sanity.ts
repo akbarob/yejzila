@@ -100,3 +100,17 @@ export async function getFilterOptions() {
         employmentTypes: [...new Set(raw.employmentTypes)].sort(),
     };
 }
+
+/**
+ * Fetches all active Talent Pipeline categories.
+ */
+export async function getPipelineCategories() {
+    const query = `*[_type == "pipelineCategory" && isActive == true] | order(title asc) {
+        _id,
+        title,
+        slug,
+        description
+    }`;
+
+    return client.fetch(query);
+}

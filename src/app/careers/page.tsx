@@ -14,13 +14,18 @@
  */
 
 import { Suspense } from 'react';
-import { Briefcase } from 'lucide-react';
-import { getActiveJobs, getFilterOptions } from '@/lib/sanity';
+import { Briefcase, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { 
+    getActiveJobs, 
+    getFilterOptions, 
+    getPipelineCategories 
+} from '@/lib/sanity';
 import JobCard, { JobListing } from '@/components/careers/JobCard';
 import JobFilters from '@/components/careers/JobFilters';
+import TalentPipeline from '@/components/careers/TalentPipeline';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Hero from '@/components/Hero';
 
 // SEO metadata for the careers page
 export const metadata = {
@@ -48,9 +53,10 @@ interface CareersPageProps {
 export default async function CareersPage({ searchParams }: CareersPageProps) {
     const resolvedParams = await searchParams;
     // Fetch data in parallel for performance
-    const [allJobs, filterOptions] = await Promise.all([
+    const [allJobs, filterOptions, pipelineCategories] = await Promise.all([
         getActiveJobs(),
         getFilterOptions(),
+        getPipelineCategories(),
     ]);
 
     // Apply server-side filtering based on URL search params
@@ -71,89 +77,96 @@ export default async function CareersPage({ searchParams }: CareersPageProps) {
             {/* Top navigation bar shared across the site */}
             <Navbar />
 
-            <main className='min-h-screen bg-gray-50'>
+            <main className='min-h-screen bg-white'>
                 {/* ── Hero Section ───────────────────────────────────────────── */}
-                <section className='relative bg-gradient-to-br from-gray-900 via-gray-800 to-primary100 pt-32 pb-20 px-5 lg:px-28 xl:px-40'>
-                    {/* Decorative background dot grid */}
-                    <div
-                        className='absolute inset-0 opacity-10 pointer-events-none'
-                        style={{
-                            backgroundImage:
-                                'radial-gradient(circle, #ffffff 1px, transparent 1px)',
-                            backgroundSize: '32px 32px',
-                        }}
-                    />
-
+                <section className='relative bg-[#0B0F1A] pt-40 pb-24 px-5 lg:px-28 xl:px-40 overflow-hidden'>
+                    {/* Background Decorative Element */}
+                    <div className='absolute top-0 right-0 w-[500px] h-[500px] bg-primary100/10 blur-[120px] rounded-full -mr-48 -mt-48 pointer-events-none' />
+                    
                     <div className='relative max-w-4xl'>
                         {/* Section label */}
-                        <span className='inline-flex items-center gap-2 text-primary100 bg-white/10 border border-white/20 text-sm font-semibold px-4 py-1.5 rounded-full mb-6'>
+                        <span className='inline-flex items-center gap-2 text-primary100 bg-primary100/10 border border-primary100/20 text-[10px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6'>
                             <Briefcase className='w-4 h-4' />
                             Join Our Team
                         </span>
 
                         {/* Headline */}
-                        <h1 className='text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6'>
-                            Build Your Career
-                            <br />
+                        <h1 className='text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-8 tracking-tight'>
+                            Build Your Career <br />
                             <span className='text-primary100'>at Yejzila</span>
                         </h1>
 
-                        <p className='text-gray-300 text-lg max-w-2xl'>
+                        <p className='text-gray-400 text-xl font-medium max-w-2xl leading-relaxed'>
                             We're a premier diverse company specialising in Oil,
                             Gas, Energy, and Mining. Join a team committed to
                             excellence, sustainability, and innovation.
                         </p>
 
-                        {/* Live job count badge */}
-                        <div className='mt-8 inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-5 py-3'>
-                            <span className='w-2 h-2 rounded-full bg-green-400 animate-pulse' />
-                            <span className='text-white font-semibold text-sm'>
-                                {allJobs.length} open{' '}
-                                {allJobs.length === 1
-                                    ? 'position'
-                                    : 'positions'}
-                            </span>
+                        {/* Live job count badge & Pipeline Link */}
+                        <div className='mt-10 flex flex-wrap gap-4 items-center'>
+                            <div className='inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl px-5 py-3'>
+                                <span className='w-2 h-2 rounded-full bg-green-400 animate-pulse' />
+                                <span className='text-white font-semibold text-sm'>
+                                    {allJobs.length} open{' '}
+                                    {allJobs.length === 1
+                                        ? 'position'
+                                        : 'positions'}
+                                </span>
+                            </div>
+
+                            <a 
+                                href='#talent-pipeline'
+                                className='inline-flex items-center gap-2 bg-primary100 hover:bg-primary100/90 text-white font-bold text-sm px-8 py-3.5 rounded-2xl transition-all shadow-xl shadow-primary100/25 active:scale-95'
+                            >
+                                <span>Join Talent Pipeline</span>
+                                <ArrowRight className='w-4 h-4' />
+                            </a>
                         </div>
                     </div>
                 </section>
 
                 {/* ── Listings Section ───────────────────────────────────────── */}
-                <section className='px-5 lg:px-28 xl:px-40 py-14'>
+                <section className='px-5 lg:px-28 xl:px-40 py-20'>
                     {/* Filter bar — wrapped in Suspense for searchParams compatibility */}
                     <Suspense fallback={null}>
                         <JobFilters options={filterOptions} />
                     </Suspense>
 
                     {/* Results summary */}
-                    <div className='mt-8 mb-6 flex items-center justify-between'>
-                        <p className='text-gray-500 text-sm'>
-                            Showing{' '}
-                            <span className='text-gray-900 font-semibold'>
+                    <div className='mt-12 mb-8 flex items-center justify-between'>
+                        <p className='text-gray-500 font-medium'>
+                            Found{' '}
+                            <span className='text-gray-900 font-bold'>
                                 {filteredJobs.length}
                             </span>{' '}
-                            {filteredJobs.length === 1 ? 'role' : 'roles'}
+                            {filteredJobs.length === 1 ? 'open position' : 'open positions'}
                         </p>
                     </div>
 
                     {/* Job cards grid or empty state */}
                     {filteredJobs.length > 0 ? (
-                        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+                        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
                             {filteredJobs.map((job) => (
                                 <JobCard key={job._id} job={job} />
                             ))}
                         </div>
                     ) : (
-                        <div className='flex flex-col items-center justify-center py-24 text-center gap-4'>
-                            <Briefcase className='w-12 h-12 text-gray-300' />
+                        <div className='flex flex-col items-center justify-center py-24 text-center gap-4 bg-gray-50 rounded-[40px] border-2 border-dashed border-gray-100'>
+                            <Briefcase className='w-12 h-12 text-gray-200' />
                             <h2 className='text-xl font-bold text-gray-700'>
-                                No positions found
+                                No current openings
                             </h2>
-                            <p className='text-gray-400 max-w-sm'>
-                                There are no open roles matching your current
-                                filters. Try adjusting or clearing them.
+                            <p className='text-gray-400 max-w-sm font-medium'>
+                                We don't have any roles matching those filters right now. 
+                                Try clearing them or apply to our talent pipeline below.
                             </p>
                         </div>
                     )}
+
+                    {/* ── Talent Pipeline Section ── */}
+                    <div id="talent-pipeline">
+                        <TalentPipeline categories={pipelineCategories} />
+                    </div>
                 </section>
             </main>
 
