@@ -2,13 +2,13 @@
 User-agent: *
 Allow: /
 
-# Googlebot
-User-agent: Googlebot
-Allow: /
-Disallow: /admin
+# *
+User-agent: *
+Disallow: /studio
+Disallow: /api
 
 # Host
-Host: https://www.yejzila.com
+Host: https://yejzila.com
 
 # Sitemaps
-Sitemap: https://www.yejzila.com/sitemap.xml
+Sitemap: https://yejzila.com/sitemap.xml

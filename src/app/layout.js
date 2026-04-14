@@ -4,35 +4,55 @@ import './globals.css';
 const sora = Sora({
     subsets: ['latin'],
     weight: ['300', '400', '500', '600', '700', '800'],
+    display: 'swap',
 });
+
 export const metadata = {
     metadataBase: new URL('https://yejzila.com'),
-    title: 'A premier diverse company specializing in Oil, Gas, Energy, and Mining',
+    title: {
+        default: 'Yejzila Resources Limited | Oil, Gas, Energy & Mining',
+        template: '%s | Yejzila Resources Limited',
+    },
     description:
-        'YEJZILA offers specialized services in exploration, extraction, and distribution of natural resources, committed to environmental sustainability.',
-    alternates: {
-        canonical: '/',
-        languages: {
-            'en-US': '/en-US',
-            'de-DE': '/de-DE',
+        'Yejzila Resources Limited offers specialized services in exploration, extraction, and distribution of natural resources — committed to safety, sustainability, and innovation.',
+    keywords: [
+        'oil and gas company Nigeria',
+        'mining services',
+        'energy company',
+        'oil exploration',
+        'natural resources',
+        'Yejzila',
+        'engineering services',
+        'offshore drilling',
+    ],
+    authors: [{ name: 'Yejzila Resources Limited', url: 'https://yejzila.com' }],
+    creator: 'Yejzila Resources Limited',
+    publisher: 'Yejzila Resources Limited',
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
         },
     },
+    alternates: {
+        canonical: 'https://yejzila.com',
+    },
     openGraph: {
-        title: 'Yejzila Resources Limited',
-        description: 'Yejzila Resources Limited, Unlocking Brilliance ',
+        title: 'Yejzila Resources Limited | Oil, Gas, Energy & Mining',
+        description:
+            'Yejzila Resources Limited — Unlocking Brilliance. Specialized services in oil, gas, energy, and mining sectors.',
         url: 'https://yejzila.com',
-        siteName: 'Yejzila',
+        siteName: 'Yejzila Resources Limited',
         images: [
             {
-                url: 'https://www.imghippo.com/i/iglOM1720687574.png', // Must be an absolute URL
-                width: 800,
-                height: 600,
-            },
-            {
-                url: 'https://https://www.imghippo.com/i/iglOM1720687574.png', // Must be an absolute URL
-                width: 1800,
-                height: 1600,
-                alt: 'jajzilaimage',
+                url: 'https://www.imghippo.com/i/iglOM1720687574.png',
+                width: 1200,
+                height: 630,
+                alt: 'Yejzila Resources Limited',
             },
         ],
         locale: 'en_US',
@@ -40,67 +60,25 @@ export const metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Yejzila Resources Limited',
-        description: 'Yejzila Resources Limited, Unlocking Brilliance',
+        title: 'Yejzila Resources Limited | Oil, Gas, Energy & Mining',
+        description:
+            'Yejzila Resources Limited — Unlocking Brilliance. Specialized services in oil, gas, energy, and mining sectors.',
         creator: '@akbar_ob',
-        images: {
-            url: 'https://www.imghippo.com/i/iglOM1720687574.png',
-            alt: 'Yejzila Logo',
-        },
+        images: [
+            {
+                url: 'https://www.imghippo.com/i/iglOM1720687574.png',
+                alt: 'Yejzila Resources Limited',
+            },
+        ],
     },
 };
 
 export default function RootLayout({ children }) {
     return (
         <html lang='en'>
-            {/* <Head>
-                <title>{metadata.title}</title>
-
-               
-                <meta property="og:title" content={metadata.title} />
-                <meta
-                    property="og:description"
-                    content="The React Framework for the Web"
-                />
-                <meta property="og:url" content="https://jejzila.com/" />
-                <meta property="og:site_name" content="Yejzila" />
-                <meta property="og:locale" content="en_US" />
-                <meta
-                    property="og:image:url"
-                    content="https://www.imghippo.com/i/iglOM1720687574.png"
-                />
-                <meta property="og:image:width" content="800" />
-                <meta property="og:image:height" content="600" />
-                <meta
-                    property="og:image:url"
-                    content="https://www.imghippo.com/i/iglOM1720687574.png"
-                />
-                <meta property="og:image:width" content="1800" />
-                <meta property="og:image:height" content="1600" />
-                <meta property="og:image:alt" content="yejzila" />
-                <meta property="og:type" content="website" />
-
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:creator" content="@akbar_ob" />
-                <meta
-                    name="twitter:title"
-                    content="Yejzila Resources Limited"
-                />
-                <meta
-                    name="twitter:description"
-                    content="Yejzila Resources Limited, Unlocking Brilliance"
-                />
-                <meta
-                    name="twitter:image"
-                    content="https://www.imghippo.com/i/iglOM1720687574.png"
-                />
-                <link rel="icon" href="/favicon.ico" />
-            </Head> */}
-            {/* <div className=""> */}
             <body className={`${sora.className} relative flex-col flex`}>
                 {children}
             </body>
-            {/* </div> */}
         </html>
     );
 }

@@ -68,11 +68,30 @@ export async function generateMetadata({
     const { slug } = await params;
     const job = await getJobBySlug(slug);
 
-    if (!job) return { title: 'Job Not Found | Yejzila Careers' };
+    if (!job) return { title: 'Job Not Found' };
 
     return {
-        title: `${job.title} | ${job.department} | Yejzila Careers`,
-        description: `Apply for the ${job.title} position at Yejzila. ${job.location}, ${job.employmentType}.`,
+        title: `${job.title} — ${job.department}`,
+        description: `Apply for the ${job.title} position at Yejzila Resources Limited. ${job.location} · ${job.employmentType}.`,
+        openGraph: {
+            title: `${job.title} | Yejzila Careers`,
+            description: `Apply for the ${job.title} position at Yejzila Resources Limited. ${job.location} · ${job.employmentType}.`,
+            url: `https://yejzila.com/careers/${slug}`,
+            images: [
+                {
+                    url: 'https://www.imghippo.com/i/iglOM1720687574.png',
+                    width: 1200,
+                    height: 630,
+                    alt: `${job.title} at Yejzila`,
+                },
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: `${job.title} | Yejzila Careers`,
+            description: `Apply for the ${job.title} position at Yejzila Resources Limited. ${job.location} · ${job.employmentType}.`,
+            images: ['https://www.imghippo.com/i/iglOM1720687574.png'],
+        },
     };
 }
 
