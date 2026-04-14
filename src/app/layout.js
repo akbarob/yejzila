@@ -1,9 +1,9 @@
-import { Roboto } from 'next/font/google';
+import { Sora } from 'next/font/google';
 import './globals.css';
 
-const roboto = Roboto({
+const sora = Sora({
     subsets: ['latin'],
-    weight: ['100', '300', '400', '500', '700', '900'],
+    weight: ['300', '400', '500', '600', '700', '800'],
 });
 export const metadata = {
     metadataBase: new URL('https://yejzila.com'),
@@ -97,7 +97,7 @@ export default function RootLayout({ children }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head> */}
             {/* <div className=""> */}
-            <body className={`${roboto.className} relative flex-col flex`}>
+            <body className={`${sora.className} relative flex-col flex`}>
                 {children}
             </body>
             {/* </div> */}

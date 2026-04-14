@@ -24,13 +24,14 @@ import {
     Timer,
     CalendarBlank,
     CheckCircle,
-    ArrowRight,
+    ArrowRight,Money
 } from '@phosphor-icons/react/dist/ssr';
 import Link from 'next/link';
 import { getJobBySlug } from '@/lib/sanity';
 import ApplicationForm from '@/components/careers/ApplicationForm';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+
 
 // ── Types and Helper Functions ────────────────────────────────────────────────
 interface SanityJob {
@@ -101,7 +102,7 @@ export default async function JobDetailPage({
 
             <main className='min-h-screen bg-white'>
                 {/* ── Hero / Header ──────────────────────────────────────────── */}
-                <section className='relative bg-[#0B0F1A] pt-32 pb-20 px-5 lg:px-28 xl:px-40 overflow-hidden'>
+                <section className='relative bg-[#0B0F1A] pt-32 pb-20 px-5 lg:px-20  overflow-hidden'>
                     {/* Background Decorative Element */}
                     <div className='absolute top-0 right-0 w-[500px] h-[500px] bg-primary100/10 blur-[120px] rounded-full -mr-48 -mt-48 pointer-events-none' />
                     <div className='absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/5 blur-[100px] rounded-full -ml-24 -mb-24 pointer-events-none' />
@@ -128,7 +129,7 @@ export default async function JobDetailPage({
                                 </div>
 
                                 {/* Job title */}
-                                <h1 className='text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tight'>
+                                <h1 className='text-2xl md:text-2xl  font-black text-white leading-[1.1] mb-6 tracking-tight'>
                                     {job.title}
                                 </h1>
 
@@ -157,7 +158,7 @@ export default async function JobDetailPage({
                                     {/* Salary range — only if provided */}
                                     {job.salaryRange && (
                                         <div className='flex items-center gap-2 text-sm text-gray-400 bg-white/5 px-4 py-2 rounded-xl backdrop-blur-sm'>
-                                            <Timer
+                                            <Money
                                                 weight='duotone'
                                                 size={18}
                                                 className='text-primary100'
@@ -206,7 +207,7 @@ export default async function JobDetailPage({
                     </div>
                 </section>
 
-                <section className='px-5 md:px-12  py-14 '>
+                <section className='px-5 md:px-20  py-14 '>
                     <div className='grid grid-cols-1 md:grid-cols-3  gap-12 mx-auto items-start'>
                         {/* ── Left Column: Job details ──────────────────────── */}
                         <div className='md:col-span-2 flex flex-col gap-12'>

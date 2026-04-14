@@ -95,7 +95,7 @@ export default function Expertise() {
                     Our Expertise
                 </motion.h3>
 
-                <p className="w-full max-w-[800px] text-lg text-slate-600">
+                <p className="w-full max-w-[800px] text-base text-slate-600">
                     Yejzila Resources Limited is a company with a broad diverse
                     portfolio within the energy and natural resources sectors
                     that specializes in oil, gas, energy, and mining.
@@ -118,10 +118,10 @@ export default function Expertise() {
 
                             <div>
                                 {" "}
-                                <h3 className="font-semibold text-3xl text-left">
+                                <h3 className="font-semibold text-2xl text-left">
                                     {item?.title}{" "}
                                 </h3>
-                                <p className="w-full max-w-[800px] text-lg text-slate-600">
+                                <p className="w-full max-w-[800px] text-base text-slate-600">
                                     {item?.desc}
                                 </p>
                             </div>

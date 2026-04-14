@@ -68,14 +68,16 @@ export default function Navbar() {
                     ? 'backdrop-blur-sm bg-primary100/20 lg:bg-transparent text-black border-b-2 border-b-primary100'
                     : 'text-white'
             }`}>
-            <Image
+                <Link href={'/'}> 
+                 <Image
                 src='/assets/Navlogo.svg'
-                alt='logo'
-                width={100}
-                height={100}
-                sizes='100'
-                className='w-[100px] lg:w-[150px] h-[150px] object-contain'
-            />
+                alt='Yejzila logo'
+                width={300}
+                height={300}
+                priority
+                className='w-[100px] lg:w-[150px] h-auto object-contain'
+            /></Link>
+          
             {/* DESKTOP NAV */}
             <ul className='hidden lg:flex gap-10 justify-end text-md w-full'>
                 {links?.map((link, i) => (

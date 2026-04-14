@@ -79,8 +79,8 @@ export default function Aboutus() {
                     About Us
                 </motion.h3>
 
-                <p className="w-full  text-lg text-slate-600">
-                    <span className="text-primary100 text-2xl">
+                <p className="w-full  text-base text-slate-600">
+                    <span className="text-primary100 text-lg">
                         Yejzila Resources Limited
                     </span>{" "}
                     is a company operating in the oil, gas, energy, and mining
@@ -104,7 +104,7 @@ export default function Aboutus() {
                             : rightVariants;
                         return (
                             <motion.div
-                                className="max-w-[350px] hover:text-white md:w-full shadow shadow-primary100/50  rounded-[6px] bg-primary100/20 hover:bg-primary100 hover:scale-105 transition-all duration-700 ease-in-out flex flex-col p-6 h-[250px] gap-4"
+                                className="max-w-[350px] hover:text-white md:w-full shadow shadow-primary100/20  rounded-[6px] bg-primary100/10 hover:bg-primary100 hover:scale-105 transition-all duration-700 ease-in-out flex flex-col p-6 h-[250px] gap-4"
                                 key={i}
                                 // initial="hidden"
                                 // animate={isInView2 ? "visible" : "null"}
@@ -113,7 +113,7 @@ export default function Aboutus() {
                                 <p className="font-semibold text-xl">
                                     {item.title}
                                 </p>
-                                <p className="text-left text-md leading-[25.3px] tracking-wide line-clamp-6 text-slate-600 text-">
+                                <p className="text-left text-sm leading-[25.3px] tracking-wide line-clamp-6 text-slate-600 text-">
                                     {item.text}
                                 </p>
                             </motion.div>

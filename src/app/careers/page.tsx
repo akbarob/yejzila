@@ -85,18 +85,18 @@ export default async function CareersPage({ searchParams }: CareersPageProps) {
                     
                     <div className='relative max-w-4xl'>
                         {/* Section label */}
-                        <span className='inline-flex items-center gap-2 text-primary100 bg-primary100/10 border border-primary100/20 text-[10px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6'>
+                        <span className='inline-flex items-center gap-2 text-primary100 bg-primary100/10 border border-primary100/20 text-[10px] font-semibold tracking-widest  px-4 py-1.5 rounded-full mb-6'>
                             <Briefcase className='w-4 h-4' />
                             Join Our Team
                         </span>
 
                         {/* Headline */}
-                        <h1 className='text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-8 tracking-tight'>
-                            Build Your Career <br />
-                            <span className='text-primary100'>at Yejzila</span>
+                        <h1 className='text-2xl  font-black text-white leading-[1.05] mb-4 tracking-tight'>
+                            Build Your Career  
+                            <span className='text-primary100'> at Yejzila</span>
                         </h1>
 
-                        <p className='text-gray-400 text-xl font-medium max-w-2xl leading-relaxed'>
+                        <p className='text-gray-400 text-base font-normal max-w-2xl leading-relaxed'>
                             We're a premier diverse company specialising in Oil,
                             Gas, Energy, and Mining. Join a team committed to
                             excellence, sustainability, and innovation.

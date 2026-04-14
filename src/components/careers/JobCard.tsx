@@ -7,6 +7,7 @@
 
 import Link from 'next/link';
 import { MapPin, Clock, Briefcase, CalendarDays, ArrowRight } from 'lucide-react';
+import { MoneyIcon } from '@phosphor-icons/react/ssr';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 export interface JobListing {
@@ -88,7 +89,7 @@ export default function JobCard({ job }: JobCardProps) {
                 {/* Salary range — only shown if provided */}
                 {job.salaryRange && (
                     <li className='flex items-center gap-2'>
-                        <Clock className='w-4 h-4 shrink-0 text-gray-400' />
+                        <MoneyIcon className='w-4 h-4 shrink-0 text-gray-400' />
                         <span>{job.salaryRange}</span>
                     </li>
                 )}

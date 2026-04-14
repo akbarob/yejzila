@@ -85,10 +85,10 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
                         <RocketLaunch size={16} weight='bold' />
                         Always Open
                     </span>
-                    <h2 className='text-4xl md:text-5xl font-semibold text-gray-900 mb-2 tracking-tight'>
+                    <h2 className='text-4xl  font-normal text-gray-900 mb-2 tracking-tight'>
                         Join our Talent Pipeline
                     </h2>
-                    <p className='text-gray-500 font-medium text-lg leading-relaxed max-w-xl'>
+                    <p className='text-gray-500 font-medium text-base leading-relaxed max-w-xl'>
                         Select a category below to submit your profile for
                         future roles.
                     </p>
@@ -105,7 +105,7 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
                         placeholder='Search categories...'
                         value={searchQuery}
                         onChange={handleSearch}
-                        className='w-full pl-12 pr-6 py-4 bg-gray-50 border-2 border-transparent focus:border-primary100 focus:bg-white outline-none rounded-2xl text-sm font-semibold transition-all shadow-sm'
+                        className='w-full pl-12 pr-6 py-4 bg-gray-50 border-2 border-transparent focus:border-primary100 focus:bg-white outline-none rounded-2xl text-sm font-normal transition-all shadow-sm'
                     />
                 </div>
             </div>
@@ -119,14 +119,14 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
                                 <button
                                     key={category._id}
                                     onClick={() => handleSelect(category._id)}
-                                    className={`group  relative flex flex-col gap-4 p-6 rounded-[32px] border-2 text-left transition-all duration-300 ${
+                                    className={`group  relative flex flex-col gap-4 p-6 rounded-[32px] border-2 text-left transition-all ease-in-out duration-300 ${
                                         selectedCategoryId === category._id
                                             ? 'bg-white border-primary100 shadow-xl shadow-primary100/10 -translate-y-1'
                                             : 'bg-gray-50/50 border hover:bg-white hover:border-gray-200 hover:shadow-lg hover:-translate-y-1'
                                     }`}>
                                     <div className='flex justify-between items-start'>
                                         <span
-                                            className={`text-[9px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-widest ${
+                                            className={`text-[9px] font-normal px-2.5 py-1 rounded-full  tracking-widest ${
                                                 selectedCategoryId ===
                                                 category._id
                                                     ? 'bg-primary100 text-white'
@@ -145,7 +145,7 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
                                     </div>
 
                                     <h3
-                                        className={`text-lg font-semibold capitalize tracking-tight leading-tight transition-colors ${
+                                        className={`text-lg font-normal capitalize tracking-tight leading-tight transition-colors ${
                                             selectedCategoryId === category._id
                                                 ? 'text-gray-900'
                                                 : 'text-gray-700'
@@ -197,7 +197,7 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
                                     </ul>
 
                                     <div
-                                        className={`mt-2 inline-flex items-center justify-between w-full p-3.5 rounded-xl text-[11px] font-semibold transition-all ${
+                                        className={`mt-2 inline-flex items-center justify-between w-full p-3.5 rounded-xl text-[11px] font-normal transition-all ${
                                             selectedCategoryId === category._id
                                                 ? 'bg-primary100 text-white'
                                                 : 'bg-white text-gray-900 border border-gray-100 group-hover:bg-primary100 group-hover:text-white'
@@ -213,12 +213,12 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
                             ))}
                         </div>
                     ) : (
-                        <div className='text-center py-20 bg-gray-50 rounded-[40px] border-2 border-dashed border-gray-200'>
+                        <div className='text-center py-20 bg-gray-50 rounded-[40px]  border-gray-200'>
                             <MagnifyingGlass
                                 size={48}
-                                className='mx-auto text-gray-200 mb-4'
+                                className='mx-auto text-gray-200 mb-4 animate-bounce'
                             />
-                            <p className='text-gray-400 font-bold'>
+                            <p className='text-gray-400 font-semibold'>
                                 No categories match your search.
                             </p>
                         </div>
@@ -274,7 +274,7 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
                 <div ref={formRef} className='lg:col-span-12 xl:col-span-5'>
                     <div className='sticky top-24 bg-white rounded-[40px] p-8 md:p-10 border-2 border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.04)]'>
                         <div className='mb-10 text-center'>
-                            <h3 className='text-2xl font-semibold text-gray-900 mb-2 tracking-tight'>
+                            <h3 className='text-2xl font-normal text-gray-900 mb-2 tracking-tight'>
                                 Apply for{' '}
                                 {selectedCategory?.title || 'Pipeline'}
                             </h3>
