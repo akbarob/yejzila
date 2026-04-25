@@ -1,4 +1,5 @@
 import { Sora } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 
 const sora = Sora({
