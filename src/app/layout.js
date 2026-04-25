@@ -1,8 +1,8 @@
-import { Sora } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 
-const sora = Sora({
+const inter = Inter({
     subsets: ['latin'],
     weight: ['300', '400', '500', '600', '700', '800'],
     display: 'swap',
@@ -171,7 +171,7 @@ export default function RootLayout({ children }) {
 
     return (
         <html lang='en'>
-            <body className={`${sora.className} relative flex-col flex`}>
+            <body className={`${inter.className} relative flex-col flex`}>
                 {children}
                 <Analytics />
             </body>
