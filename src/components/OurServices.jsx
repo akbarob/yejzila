@@ -1,7 +1,7 @@
-"use client";
-import Image from "next/image";
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+'use client';
+import Image from 'next/image';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 export default function OurServices() {
     const ref = useRef(null);
@@ -55,27 +55,27 @@ export default function OurServices() {
     ];
 
     return (
-        <div className="h-full w-full bg-primary100   flex flex-col p-10 lg:px-44 justify-center items-start gap-8 ">
+        <div className='h-full w-full bg-primary100   flex flex-col p-10 lg:px-44 justify-center items-start gap-8 '>
             <motion.h3
                 ref={ref}
-                initial="hidden"
-                animate={isInView ? "visible" : ""}
+                initial='hidden'
+                animate={isInView ? 'visible' : ''}
                 variants={titleVariants}
-                className="font-semibold text-4xl text-left">
-                Our Services{" "}
+                className='font-semibold text-4xl text-left'>
+                Our Core Services{' '}
             </motion.h3>
 
-            <p className="w-full max-w-[800px] text-lg text-slate-600">
+            <p className='w-full max-w-[800px] text-lg text-slate-600'>
                 Oil, gas, energy, and mining servicing firms provide a wide
                 range of specialized services to support exploration,
                 production, and maintenance activities in these industries.
             </p>
 
-            <div className="w-full grid md:grid-cols-2  xl:grid-cols-3 gap-x-4 gap-y-8 place-content-center">
+            <div className='w-full grid md:grid-cols-2  xl:grid-cols-3 gap-x-4 gap-y-8 place-content-center'>
                 {services.map((item, i) => (
                     <div
                         key={i}
-                        className="flex flex-col gap-3 rounded-[6px] mr-4 p-4 bg-white w-full max-w-[350px] ">
+                        className='flex flex-col gap-3 rounded-[6px] mr-4 p-4 bg-white w-full max-w-[350px] '>
                         <div>
                             <Image
                                 src={item.image}

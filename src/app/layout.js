@@ -41,6 +41,9 @@ export const metadata = {
     alternates: {
         canonical: 'https://yejzila.com',
     },
+    alternates: {
+        canonical: 'https://yejzila.com',
+    },
     openGraph: {
         title: 'Yejzila Resources Limited | Oil, Gas, Energy & Mining',
         description:
@@ -74,10 +77,102 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Yejzila Resources Limited',
+        alternateName: 'Yejzila',
+        url: 'https://www.yejzila.com',
+        logo: 'https://www.yejzila.com/assets/Navlogo.svg',
+        description:
+            'Premier Oil, Gas, Energy & Mining Solutions provider offering expert procurement, supply chain, and workforce solutions.',
+        foundingDate: '2020',
+        address: {
+            '@type': 'PostalAddress',
+            streetAddress:
+                '40 Shedrack Avenue, Apamini Estate, Rockword Junction',
+            addressLocality: 'Elelenwo',
+            addressRegion: 'Port Harcourt',
+            addressCountry: 'Nigeria',
+        },
+        contactPoint: [
+            {
+                '@type': 'ContactPoint',
+                telephone: '+234-903-614-3222',
+                contactType: 'customer service',
+                areaServed: 'NG',
+            },
+            {
+                '@type': 'ContactPoint',
+                telephone: '+44-744-243-7146',
+                contactType: 'customer service',
+                areaServed: 'GB',
+            },
+        ],
+        email: 'info@yejzila.com',
+        sameAs: [
+            'https://www.linkedin.com/company/yejzila-resources/',
+            'https://www.instagram.com/yejzila_resources',
+        ],
+        serviceArea: ['Nigeria', 'United Kingdom'],
+        hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'Yejzila Services',
+            itemListElement: [
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Service',
+                        name: 'Procurement & Supply Chain Solutions',
+                        description:
+                            'Strategic sourcing of equipment, machinery & materials',
+                    },
+                },
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Service',
+                        name: 'Oil & Gas Services',
+                        description:
+                            'Oilfield equipment, drilling tools & rigs procurement',
+                    },
+                },
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Service',
+                        name: 'Energy Services',
+                        description:
+                            'Renewable energy solutions and power generation equipment',
+                    },
+                },
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Service',
+                        name: 'Mining & Mineral Resources',
+                        description:
+                            'Mining equipment, heavy machinery & spare parts supply',
+                    },
+                },
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Service',
+                        name: 'Recruitment & Workforce Solutions',
+                        description:
+                            'Executive search & technical manpower supply',
+                    },
+                },
+            ],
+        },
+    };
+
     return (
         <html lang='en'>
             <body className={`${sora.className} relative flex-col flex`}>
                 {children}
+                <Analytics />
             </body>
         </html>
     );

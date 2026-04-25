@@ -16,28 +16,31 @@ import { Button } from './ui/button';
 const CarouselImages = [
     {
         image: '/assets/carousel1.jpg',
-        title: 'Oil, Gas, Energy and Mining',
-        text: 'We power your future, developing and delivering innovative solutions for the energy and mining industries.',
-        buttontext: 'Learn More',
+        title: 'Yejzila - Premier Oil, Gas, Energy & Mining Solutions',
+        text: 'Leading provider of innovative energy solutions, mining equipment, and industrial services. Powering your future with expert procurement and supply chain excellence.',
+        buttontext: 'Discover Our Services',
     },
     {
         image: '/assets/carousel4.png',
-        title: 'Oil & Gas',
-        text: 'Unleashing energy for a secured Tomorrow.',
-        buttontext: 'Learn More',
+        title: 'Yejzila Oil & Gas Services',
+        text: 'Comprehensive oilfield equipment, drilling tools, and energy infrastructure solutions. Unleashing energy potential for a secured tomorrow.',
+        buttontext: 'Explore Oil & Gas',
     },
 
     {
-        image: '/assets/carousel2.jpg',
-        title: 'Renewable Energy',
-        text: 'Harnessing nature’s power through Infinite Possibilities.',
-        buttontext: 'Learn More',
+        // image: '/assets/carousel2.jpg',
+        // image: '/assets/photovoltaic-4525178_1920.jpg',
+        image: '/assets/photovoltaic-system-2742302_1920.jpg',
+        // image: '/assets/cesc-banner.webp',
+        title: 'Yejzila Renewable Energy Solutions',
+        text: "Sustainable energy systems, solar power solutions, and green technology procurement. Harnessing nature's power through infinite possibilities for a cleaner future.",
+        buttontext: 'Go Green Today',
     },
     {
         image: '/assets/carousel3.jpg',
-        title: 'Mining',
-        text: "Unearthing Tomorrow's Resources Today with a lasting impact and a vision for the future",
-        buttontext: 'Learn More',
+        title: 'Yejzila Mining & Heavy Equipment Supply',
+        text: "Expert mining equipment procurement, heavy machinery supply, and mineral resource solutions. Unearthing tomorrow's resources today with lasting impact and future vision.",
+        buttontext: 'Mining Solutions',
     },
 ];
 export default function Hero() {
@@ -73,9 +76,9 @@ export default function Hero() {
                             className='w-full h-full object-center object-cover  absolute inset-x-0 inset-y-0 z-10'
                         />
                         <div className='z-50  flex flex-col justify-end items-start gap-4 absolute  inset-x-0 top-52 lg:bottom-52 px-10 lg:px-40'>
-                            <h2 className='text-3xl lg:text-6xl text-white font-bold'>
+                            <h1 className='text-3xl lg:text-6xl text-white font-bold'>
                                 {image?.title}
-                            </h2>
+                            </h1>
                             <h6 className='text-lg lg:text-xl text-white font-medium '>
                                 {image?.text}
                             </h6>
