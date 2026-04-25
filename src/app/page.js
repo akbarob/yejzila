@@ -5,7 +5,12 @@ import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import OurServices from "@/components/OurServices";
 import WhatWeOffer from "@/components/WhatWeOffer";
-import Image from "next/image";
+
+export const metadata = {
+    alternates: {
+        canonical: 'https://yejzila.com',
+    },
+};
 
 export default function Home() {
     return (

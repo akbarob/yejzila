@@ -1,13 +1,21 @@
-"use client";
+/**
+ * Navbar component for global site navigation.
+ *
+ * User Story:
+ * As a user, I want to navigate the application easily.
+ *
+ * Acceptance criteria: Unit testing has been completed and Regression testing has been completed
+ */
+'use client';
 
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import MobileNav from "./MobileNav";
-import Link from "next/link";
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+import MobileNav from './MobileNav';
+import Link from 'next/link';
 
 export default function Navbar() {
     const [scrollY, setScrollY] = useState(0);
-    const [scrollDirection, setScrollDirection] = useState("up");
+    const [scrollDirection, setScrollDirection] = useState('up');
     const [navbarBg, setNavbarBg] = useState(false);
     useEffect(() => {
         let lastScrollY = window.scrollY;
@@ -19,18 +27,18 @@ export default function Navbar() {
             if (
                 currentScrollY > lastScrollY &&
                 currentScrollY > 300 &&
-                scrollDirection !== "down"
+                scrollDirection !== 'down'
             ) {
-                setScrollDirection("down");
+                setScrollDirection('down');
             } else if (
                 currentScrollY < lastScrollY &&
-                scrollDirection !== "up"
+                scrollDirection !== 'up'
             ) {
-                setScrollDirection("up");
+                setScrollDirection('up');
             }
 
             if (currentScrollY <= 300) {
-                setScrollDirection("up"); // Always show navbar if within 100px from the top
+                setScrollDirection('up'); // Always show navbar if within 100px from the top
             }
 
             if (currentScrollY > 50) {
@@ -42,39 +50,41 @@ export default function Navbar() {
             lastScrollY = currentScrollY;
         };
 
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener('scroll', handleScroll);
 
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener('scroll', handleScroll);
         };
     }, [scrollDirection]);
 
     return (
         <nav
             className={`z-50 fixed top h-[80px] w-full transition-transform duration-300 ${
-                scrollDirection === "up"
-                    ? "transform translate-y-0"
-                    : "transform -translate-y-full"
+                scrollDirection === 'up'
+                    ? 'transform translate-y-0'
+                    : 'transform -translate-y-full'
             } flex justify-between pl-5 pr-10 lg:px-28 xl:px-40 items-center ${
                 navbarBg
-                    ? "backdrop-blur-sm bg-primary100/20 lg:bg-transparent text-black border-b-2 border-b-primary100"
-                    : "text-white"
+                    ? 'backdrop-blur-sm bg-primary100/20 lg:bg-transparent text-black border-b-2 border-b-primary100'
+                    : 'text-white'
             }`}>
-            <Image
-                src="/assets/Navlogo.svg"
-                alt="logo"
-                width={100}
-                height={100}
-                sizes="100"
-                className="w-[100px] lg:w-[150px] h-[150px] object-contain"
-            />
+                <Link href={'/'}> 
+                 <Image
+                src='/assets/Navlogo.svg'
+                alt='Yejzila logo'
+                width={300}
+                height={300}
+                priority
+                className='w-[100px] lg:w-[150px] h-auto object-contain'
+            /></Link>
+          
             {/* DESKTOP NAV */}
-            <ul className="hidden lg:flex gap-10 justify-end text-md w-full">
-                {links.map((link, i) => (
+            <ul className='hidden lg:flex gap-10 justify-end text-md w-full'>
+                {links?.map((link, i) => (
                     <li
-                        key={link}
-                        className="hover:text-primary100 cursor-pointer transition-all ease-in duration700 font-semibold p-2 hover:border-b hover:border-b-primary100">
-                        <Link href={link?.link}>{link.title}</Link>
+                        key={i}
+                        className='hover:text-primary100 cursor-pointer transition-all ease-in duration700 font-semibold p-2 hover:border-b hover:border-b-primary100'>
+                        <Link href={link?.link}>{link?.title}</Link>
                     </li>
                 ))}
             </ul>
@@ -87,10 +97,12 @@ export default function Navbar() {
     );
 }
 
+// Navigation links — "Careers" added to route users to the /careers page
 const links = [
-    { title: "Home", link: "/" },
-    { title: "About us", link: "#aboutus" },
-    { title: "Projects", link: "/" },
-    { title: "Services", link: "#services" },
-    { title: "Contact Us", link: "#contactus" },
+    { title: 'Home', link: '/' },
+    { title: 'About us', link: '/#aboutus' },
+    { title: 'Projects', link: '/' },
+    { title: 'Services', link: '/#services' },
+    { title: 'Careers', link: '/careers' },
+    { title: 'Contact Us', link: '/#contactus' },
 ];

@@ -1,36 +1,62 @@
-import { Roboto } from 'next/font/google';
+import { Sora } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
-import { Analytics } from '@vercel/analytics/next';
-const roboto = Roboto({
+
+const sora = Sora({
     subsets: ['latin'],
-    weight: ['100', '300', '400', '500', '700', '900'],
+    weight: ['300', '400', '500', '600', '700', '800'],
+    display: 'swap',
 });
+
 export const metadata = {
-    metadataBase: new URL('https://www.yejzila.com'),
-    title: 'Yejzila Resources Limited - Premier Oil, Gas, Energy & Mining Solutions',
+    metadataBase: new URL('https://yejzila.com'),
+    title: {
+        default: 'Yejzila Resources Limited | Oil, Gas, Energy & Mining',
+        template: '%s | Yejzila Resources Limited',
+    },
     description:
-        'Yejzila Resources Limited delivers expert procurement, supply chain, and workforce solutions for Oil & Gas, Energy, Mining sectors. Strategic sourcing, EPC support, renewable energy, and technical manpower services across Nigeria and UK.',
-    keywords:
-        'Yejzila, oil and gas services, energy solutions, mining resources, procurement services, supply chain, workforce solutions, Nigeria, UK, renewable energy, technical manpower',
-    authors: [{ name: 'Yejzila Resources Limited' }],
-    alternates: {
-        canonical: 'https://www.yejzila.com',
-        languages: {
-            'en-US': '/en-US',
+        'Yejzila Resources Limited offers specialized services in exploration, extraction, and distribution of natural resources — committed to safety, sustainability, and innovation.',
+    keywords: [
+        'oil and gas company Nigeria',
+        'mining services',
+        'energy company',
+        'oil exploration',
+        'natural resources',
+        'Yejzila',
+        'engineering services',
+        'offshore drilling',
+    ],
+    authors: [{ name: 'Yejzila Resources Limited', url: 'https://yejzila.com' }],
+    creator: 'Yejzila Resources Limited',
+    publisher: 'Yejzila Resources Limited',
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
         },
     },
+    alternates: {
+        canonical: 'https://yejzila.com',
+    },
+    alternates: {
+        canonical: 'https://yejzila.com',
+    },
     openGraph: {
-        title: 'Yejzila Resources Limited - Premier Oil, Gas, Energy & Mining Solutions',
+        title: 'Yejzila Resources Limited | Oil, Gas, Energy & Mining',
         description:
-            'Expert procurement, supply chain, and workforce solutions for Oil & Gas, Energy, Mining sectors. Unlocking Brilliance in Resource Management.',
-        url: 'https://www.yejzila.com',
+            'Yejzila Resources Limited — Unlocking Brilliance. Specialized services in oil, gas, energy, and mining sectors.',
+        url: 'https://yejzila.com',
         siteName: 'Yejzila Resources Limited',
         images: [
             {
-                url: 'https://www.yejzila.com/opengraph-image.jpg',
+                url: 'https://www.imghippo.com/i/iglOM1720687574.png',
                 width: 1200,
                 height: 630,
-                alt: 'Yejzila Resources Limited - Oil, Gas, Energy & Mining Solutions',
+                alt: 'Yejzila Resources Limited',
             },
         ],
         locale: 'en_US',
@@ -38,25 +64,16 @@ export const metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Yejzila Resources Limited - Premier Oil, Gas, Energy & Mining Solutions',
+        title: 'Yejzila Resources Limited | Oil, Gas, Energy & Mining',
         description:
-            'Expert procurement, supply chain, and workforce solutions for Oil & Gas, Energy, Mining sectors.',
+            'Yejzila Resources Limited — Unlocking Brilliance. Specialized services in oil, gas, energy, and mining sectors.',
         creator: '@akbar_ob',
-        images: {
-            url: 'https://www.yejzila.com/twitter-image.jpg',
-            alt: 'Yejzila Resources Limited Logo',
-        },
-    },
-    robots: {
-        index: true,
-        follow: true,
-        googleBot: {
-            index: true,
-            follow: true,
-            'max-video-preview': -1,
-            'max-image-preview': 'large',
-            'max-snippet': -1,
-        },
+        images: [
+            {
+                url: 'https://www.imghippo.com/i/iglOM1720687574.png',
+                alt: 'Yejzila Resources Limited',
+            },
+        ],
     },
 };
 
@@ -154,13 +171,7 @@ export default function RootLayout({ children }) {
 
     return (
         <html lang='en'>
-            <head>
-                <script
-                    type='application/ld+json'
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-                />
-            </head>
-            <body className={`${roboto.className} relative flex-col flex`}>
+            <body className={`${sora.className} relative flex-col flex`}>
                 {children}
                 <Analytics />
             </body>
