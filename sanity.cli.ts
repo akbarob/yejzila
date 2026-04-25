@@ -8,8 +8,13 @@ import { defineCliConfig } from 'sanity/cli';
 
 export default defineCliConfig({
     api: {
+       
         // Set these values after running `npx sanity init` and pasting the returned IDs
         projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
         dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+    }, deployment: {
+        appId: process.env.NEXT_PUBLIC_SANITY_APP_ID,
     },
 });
+
+
