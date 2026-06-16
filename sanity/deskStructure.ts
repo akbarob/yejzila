@@ -23,7 +23,7 @@ export const deskStructure: StructureResolver = (S) =>
                 ),
 
             S.divider(),
-            
+
             // ── Talent Pipeline ───────────────────────────────────────────
             S.listItem()
                 .title('Talent Pipeline')
@@ -32,7 +32,6 @@ export const deskStructure: StructureResolver = (S) =>
                     S.list()
                         .title('Talent Pipeline Management')
                         .items([
-                            // Pipeline Categories (HR, Customer Service, etc.)
                             S.listItem()
                                 .title('Pipeline Categories')
                                 .icon(() => '🏷️')
@@ -40,10 +39,9 @@ export const deskStructure: StructureResolver = (S) =>
                                     S.documentTypeList('pipelineCategory')
                                         .title('Management Categories')
                                 ),
-                            
+
                             S.divider(),
 
-                            // Pipeline Applications specifically
                             S.listItem()
                                 .title('Pipeline Submissions')
                                 .icon(() => '📥')
@@ -58,7 +56,7 @@ export const deskStructure: StructureResolver = (S) =>
 
             S.divider(),
 
-            // ── Applications — overview and status-based views ─────────────
+            // ── Applications ──────────────────────────────────────────────
             S.listItem()
                 .title('Job Applications')
                 .icon(() => '📬')
@@ -66,7 +64,6 @@ export const deskStructure: StructureResolver = (S) =>
                     S.list()
                         .title('Applications')
                         .items([
-                            // All applications
                             S.listItem()
                                 .title('All Applications')
                                 .icon(() => '📂')
@@ -75,8 +72,7 @@ export const deskStructure: StructureResolver = (S) =>
                                         .title('All Applications')
                                         .defaultOrdering([{ field: 'appliedAt', direction: 'desc' }])
                                 ),
-                            
-                            // Specific filter for standard job applications
+
                             S.listItem()
                                 .title('Specific Job Apps')
                                 .icon(() => '💼')
@@ -89,7 +85,6 @@ export const deskStructure: StructureResolver = (S) =>
 
                             S.divider(),
 
-                            // Status-based filters (applies to all types)
                             S.listItem()
                                 .title('🆕 New')
                                 .child(
@@ -99,7 +94,6 @@ export const deskStructure: StructureResolver = (S) =>
                                         .defaultOrdering([{ field: 'appliedAt', direction: 'desc' }])
                                 ),
 
-                            // Reviewing
                             S.listItem()
                                 .title('👀 Reviewing')
                                 .child(
@@ -109,7 +103,6 @@ export const deskStructure: StructureResolver = (S) =>
                                         .defaultOrdering([{ field: 'appliedAt', direction: 'desc' }])
                                 ),
 
-                            // Shortlisted
                             S.listItem()
                                 .title('✅ Shortlisted')
                                 .child(
@@ -119,7 +112,6 @@ export const deskStructure: StructureResolver = (S) =>
                                         .defaultOrdering([{ field: 'appliedAt', direction: 'desc' }])
                                 ),
 
-                            // Rejected
                             S.listItem()
                                 .title('❌ Rejected')
                                 .child(
@@ -127,6 +119,56 @@ export const deskStructure: StructureResolver = (S) =>
                                         .title('Rejected Applications')
                                         .filter('_type == "jobApplication" && status == "rejected"')
                                         .defaultOrdering([{ field: 'appliedAt', direction: 'desc' }])
+                                ),
+                        ])
+                ),
+
+            S.divider(),
+
+            // ── Event Registrations (Bible Reading Marathon) ──────────────
+            S.listItem()
+                .title('Event Registrations')
+                .icon(() => '🎟️')
+                .child(
+                    S.list()
+                        .title('Bible Reading Marathon Registrations')
+                        .items([
+                            S.listItem()
+                                .title('All Registrants')
+                                .icon(() => '📋')
+                                .child(
+                                    S.documentTypeList('eventRegistration')
+                                        .title('All Registrants')
+                                        .defaultOrdering([{ field: 'registeredAt', direction: 'desc' }])
+                                ),
+
+                            S.divider(),
+
+                            S.listItem()
+                                .title('🆕 Registered')
+                                .child(
+                                    S.documentTypeList('eventRegistration')
+                                        .title('Registered')
+                                        .filter('_type == "eventRegistration" && status == "registered"')
+                                        .defaultOrdering([{ field: 'registeredAt', direction: 'desc' }])
+                                ),
+
+                            S.listItem()
+                                .title('✅ Checked In')
+                                .child(
+                                    S.documentTypeList('eventRegistration')
+                                        .title('Checked In')
+                                        .filter('_type == "eventRegistration" && status == "checked_in"')
+                                        .defaultOrdering([{ field: 'registeredAt', direction: 'desc' }])
+                                ),
+
+                            S.listItem()
+                                .title('❌ Cancelled')
+                                .child(
+                                    S.documentTypeList('eventRegistration')
+                                        .title('Cancelled')
+                                        .filter('_type == "eventRegistration" && status == "cancelled"')
+                                        .defaultOrdering([{ field: 'registeredAt', direction: 'desc' }])
                                 ),
                         ])
                 ),

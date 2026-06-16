@@ -8,6 +8,7 @@ import { blockContent } from './blockContent';
 import { jobListing } from './jobListing';
 import { jobApplication } from './jobApplication';
 import { pipelineCategory } from './pipelineCategory';
+import { eventRegistration } from './eventRegistration';
 
 // All schemas exported as an array — consumed by sanity.config.ts
-export const schemaTypes = [blockContent, jobListing, jobApplication, pipelineCategory];
+export const schemaTypes = [blockContent, jobListing, jobApplication, pipelineCategory, eventRegistration];
