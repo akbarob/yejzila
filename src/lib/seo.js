@@ -80,7 +80,10 @@ export function buildSiteJsonLd() {
                         areaServed: 'GB',
                     },
                 ],
-                sameAs: ['https://www.instagram.com/yejzila_resources'],
+                sameAs: [
+                    'https://www.linkedin.com/company/yejzila-resources-limited/',
+                    'https://www.instagram.com/yejzila_resources',
+                ],
                 // Mirrors the capability groups shown on the home page
                 hasOfferCatalog: {
                     '@type': 'OfferCatalog',
