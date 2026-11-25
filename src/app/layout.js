@@ -1,6 +1,15 @@
 import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
+import {
+    SITE_URL,
+    SITE_NAME,
+    DEFAULT_TITLE,
+    DEFAULT_DESCRIPTION,
+    OG_IMAGE,
+    buildSiteJsonLd,
+    jsonLdScript,
+} from '@/lib/seo';
 
 const inter = Inter({
     subsets: ['latin'],
@@ -9,26 +18,29 @@ const inter = Inter({
 });
 
 export const metadata = {
-    metadataBase: new URL('https://yejzila.com'),
+    metadataBase: new URL(SITE_URL),
     title: {
-        default: 'Yejzila Resources Limited | Oil, Gas, Energy & Mining',
-        template: '%s | Yejzila Resources Limited',
+        default: DEFAULT_TITLE,
+        template: `%s | ${SITE_NAME}`,
     },
-    description:
-        'Yejzila Resources Limited offers specialized services in exploration, extraction, and distribution of natural resources — committed to safety, sustainability, and innovation.',
+    description: DEFAULT_DESCRIPTION,
+    applicationName: SITE_NAME,
     keywords: [
-        'oil and gas company Nigeria',
-        'mining services',
-        'energy company',
-        'oil exploration',
-        'natural resources',
         'Yejzila',
-        'engineering services',
-        'offshore drilling',
+        'Yejzila Resources',
+        'Yejzila Resources Limited',
+        'industrial procurement',
+        'procurement and supply solutions',
+        'oil and gas procurement',
+        'energy and mining supplies',
+        'oilfield supplies',
+        'supply chain services',
+        'procurement company Port Harcourt',
+        'procurement company Nigeria',
     ],
-    authors: [{ name: 'Yejzila Resources Limited', url: 'https://yejzila.com' }],
-    creator: 'Yejzila Resources Limited',
-    publisher: 'Yejzila Resources Limited',
+    authors: [{ name: SITE_NAME, url: SITE_URL }],
+    creator: SITE_NAME,
+    publisher: SITE_NAME,
     robots: {
         index: true,
         follow: true,
@@ -39,139 +51,37 @@ export const metadata = {
             'max-snippet': -1,
         },
     },
-    alternates: {
-        canonical: 'https://yejzila.com',
-    },
-    alternates: {
-        canonical: 'https://yejzila.com',
-    },
+    // No canonical here on purpose: a canonical set in the root layout is
+    // inherited by every page and would point them all at the home page.
+    // Each page sets its own (see page.js and the careers pages).
     openGraph: {
-        title: 'Yejzila Resources Limited | Oil, Gas, Energy & Mining',
-        description:
-            'Yejzila Resources Limited — Unlocking Brilliance. Specialized services in oil, gas, energy, and mining sectors.',
-        url: 'https://yejzila.com',
-        siteName: 'Yejzila Resources Limited',
-        images: [
-            {
-                url: 'https://www.imghippo.com/i/iglOM1720687574.png',
-                width: 1200,
-                height: 630,
-                alt: 'Yejzila Resources Limited',
-            },
-        ],
+        title: DEFAULT_TITLE,
+        description: DEFAULT_DESCRIPTION,
+        url: '/',
+        siteName: SITE_NAME,
+        images: [OG_IMAGE],
         locale: 'en_US',
         type: 'website',
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Yejzila Resources Limited | Oil, Gas, Energy & Mining',
-        description:
-            'Yejzila Resources Limited — Unlocking Brilliance. Specialized services in oil, gas, energy, and mining sectors.',
-        creator: '@akbar_ob',
-        images: [
-            {
-                url: 'https://www.imghippo.com/i/iglOM1720687574.png',
-                alt: 'Yejzila Resources Limited',
-            },
-        ],
+        title: DEFAULT_TITLE,
+        description: DEFAULT_DESCRIPTION,
+        images: [OG_IMAGE],
     },
 };
 
 export default function RootLayout({ children }) {
-    const jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'Organization',
-        name: 'Yejzila Resources Limited',
-        alternateName: 'Yejzila',
-        url: 'https://www.yejzila.com',
-        logo: 'https://www.yejzila.com/assets/Navlogo.svg',
-        description:
-            'Premier Oil, Gas, Energy & Mining Solutions provider offering expert procurement, supply chain, and workforce solutions.',
-        foundingDate: '2020',
-        address: {
-            '@type': 'PostalAddress',
-            streetAddress:
-                '40 Shedrack Avenue, Apamini Estate, Rockword Junction',
-            addressLocality: 'Elelenwo',
-            addressRegion: 'Port Harcourt',
-            addressCountry: 'Nigeria',
-        },
-        contactPoint: [
-            {
-                '@type': 'ContactPoint',
-                telephone: '+234-903-614-3222',
-                contactType: 'customer service',
-                areaServed: 'NG',
-            },
-            {
-                '@type': 'ContactPoint',
-                telephone: '+44-744-243-7146',
-                contactType: 'customer service',
-                areaServed: 'GB',
-            },
-        ],
-        email: 'info@yejzila.com',
-        sameAs: [
-            'https://www.linkedin.com/company/yejzila-resources/',
-            'https://www.instagram.com/yejzila_resources',
-        ],
-        serviceArea: ['Nigeria', 'United Kingdom'],
-        hasOfferCatalog: {
-            '@type': 'OfferCatalog',
-            name: 'Yejzila Services',
-            itemListElement: [
-                {
-                    '@type': 'Offer',
-                    itemOffered: {
-                        '@type': 'Service',
-                        name: 'Procurement & Supply Chain Solutions',
-                        description:
-                            'Strategic sourcing of equipment, machinery & materials',
-                    },
-                },
-                {
-                    '@type': 'Offer',
-                    itemOffered: {
-                        '@type': 'Service',
-                        name: 'Oil & Gas Services',
-                        description:
-                            'Oilfield equipment, drilling tools & rigs procurement',
-                    },
-                },
-                {
-                    '@type': 'Offer',
-                    itemOffered: {
-                        '@type': 'Service',
-                        name: 'Energy Services',
-                        description:
-                            'Renewable energy solutions and power generation equipment',
-                    },
-                },
-                {
-                    '@type': 'Offer',
-                    itemOffered: {
-                        '@type': 'Service',
-                        name: 'Mining & Mineral Resources',
-                        description:
-                            'Mining equipment, heavy machinery & spare parts supply',
-                    },
-                },
-                {
-                    '@type': 'Offer',
-                    itemOffered: {
-                        '@type': 'Service',
-                        name: 'Recruitment & Workforce Solutions',
-                        description:
-                            'Executive search & technical manpower supply',
-                    },
-                },
-            ],
-        },
-    };
-
     return (
         <html lang='en'>
             <body className={`${inter.className} relative flex-col flex`}>
+                {/* Organization + WebSite structured data for search engines */}
+                <script
+                    type='application/ld+json'
+                    dangerouslySetInnerHTML={{
+                        __html: jsonLdScript(buildSiteJsonLd()),
+                    }}
+                />
                 {children}
                 <Analytics />
             </body>

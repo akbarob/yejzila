@@ -1,6 +1,5 @@
-"use client";
-import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
+'use client';
+import React, { useState } from 'react';
 import {
     Sheet,
     SheetContent,
@@ -8,66 +7,113 @@ import {
     SheetHeader,
     SheetTitle,
     SheetTrigger,
-} from "@/components/ui/sheet";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { X } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+} from '@/components/ui/sheet';
+import { RxHamburgerMenu } from 'react-icons/rx';
+import { ChevronRight, Mail, Phone } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
-export default function MobileNav({ links, navbarBg }) {
+export default function MobileNav({ links, contactLink, pathname }) {
     const [open, setOpen] = useState(false);
 
+    const isActive = (link, index) =>
+        link.link === '/careers'
+            ? pathname?.startsWith('/careers')
+            : index === 0 && pathname === '/';
+
     return (
-        <div className="lg:hidden">
+        <div className='lg:hidden'>
             <Sheet open={open} onOpenChange={setOpen}>
                 <SheetTrigger asChild>
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                        className={`border-2 hover:bg-transparent hover:text-primary100 ${
-                            !navbarBg
-                                ? "border-white text-white"
-                                : "border-primary100 text-primary100"
-                        }`}>
-                        <RxHamburgerMenu size={22} />
-                    </Button>
+                    <button
+                        type='button'
+                        aria-label='Open menu'
+                        className='inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/25 bg-white/10 text-white backdrop-blur-sm transition-colors duration-200 hover:border-primary100 hover:text-primary100 active:scale-[0.96] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary100'>
+                        <RxHamburgerMenu size={22} aria-hidden='true' />
+                    </button>
                 </SheetTrigger>
 
                 <SheetContent
-                    side="right"
-                    className="flex flex-col w-[280px] p-0 border-l border-primary100/20 bg-white">
-
+                    side='right'
+                    className='flex w-[86vw] max-w-[340px] flex-col gap-0 border-l border-white/10 bg-slate-950 p-0 text-white [&>button]:right-4 [&>button]:top-5 [&>button]:flex [&>button]:h-10 [&>button]:w-10 [&>button]:items-center [&>button]:justify-center [&>button]:rounded-xl [&>button]:border [&>button]:border-white/15 [&>button]:text-white [&>button]:opacity-100 [&>button_svg]:h-5 [&>button_svg]:w-5'>
                     {/* Header */}
-                    <SheetHeader className="px-6 pt-6 pb-4 border-b border-slate-100 bg-slate-900 rounded-t-lg">
+                    <SheetHeader className='flex h-20 flex-row items-center space-y-0 border-b border-white/10 px-6'>
                         <SheetTitle>
                             <Image
-                                src="/assets/Navlogo.svg"
-                                alt="Yejzila logo"
+                                src='/assets/Navlogo.svg'
+                                alt='Yejzila logo'
                                 width={300}
                                 height={300}
-                                priority
-                                className="w-[130px] h-auto object-contain"
+                                className='h-auto w-[120px] object-contain'
                             />
                         </SheetTitle>
-                        <SheetDescription />
+                        <SheetDescription className='sr-only'>
+                            Site navigation
+                        </SheetDescription>
                     </SheetHeader>
 
                     {/* Nav links */}
-                    <nav className="flex flex-col gap-1 px-4 py-6 flex-1">
-                        {links.map((link) => (
-                            <Link
-                                href={link.link}
-                                key={link.title}
-                                onClick={() => setOpen(false)}
-                                className="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 font-medium hover:bg-primary100/10 hover:text-primary100 transition-colors duration-200">
-                                {link.title}
-                            </Link>
-                        ))}
+                    <nav
+                        aria-label='Mobile'
+                        className='flex flex-1 flex-col overflow-y-auto px-3 py-4'>
+                        {links.map((link, i) => {
+                            const active = isActive(link, i);
+                            return (
+                                <Link
+                                    href={link.link}
+                                    key={link.title}
+                                    onClick={() => setOpen(false)}
+                                    aria-current={active ? 'page' : undefined}
+                                    className={`group flex min-h-[52px] items-center justify-between rounded-xl px-4 text-[17px] font-semibold transition-colors duration-200 hover:bg-white/5 hover:text-primary100 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary100 ${
+                                        active
+                                            ? 'bg-primary100/10 text-primary100'
+                                            : 'text-white'
+                                    }`}>
+                                    {link.title}
+                                    <ChevronRight
+                                        size={18}
+                                        aria-hidden='true'
+                                        className='text-white/30 transition-[transform,color] duration-200 group-hover:translate-x-0.5 group-hover:text-primary100'
+                                    />
+                                </Link>
+                            );
+                        })}
                     </nav>
 
-                    {/* Footer */}
-                    <div className="px-6 py-4 border-t border-slate-100 text-center text-sm text-slate-400">
-                        © {new Date().getFullYear()} <span className="text-primary100 font-semibold">Yejzila™️</span> — All rights reserved
+                    {/* Contact */}
+                    <div className='space-y-4 border-t border-white/10 px-6 py-6'>
+                        <Link
+                            href={contactLink.link}
+                            onClick={() => setOpen(false)}
+                            className='flex h-12 items-center justify-center rounded-full bg-primary100 text-[16px] font-semibold text-slate-950 transition-[background-color,transform] duration-200 hover:bg-[#ffb93f] active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'>
+                            {contactLink.title}
+                        </Link>
+                        <div className='space-y-1 text-[14px] text-white/70'>
+                            <a
+                                href='mailto:info@yejzila.com'
+                                className='flex min-h-[40px] items-center gap-3 transition-colors duration-200 hover:text-white'>
+                                <Mail
+                                    size={16}
+                                    aria-hidden='true'
+                                    className='text-primary100'
+                                />
+                                info@yejzila.com
+                            </a>
+                            <a
+                                href='tel:+2349036143222'
+                                className='flex min-h-[40px] items-center gap-3 tabular-nums transition-colors duration-200 hover:text-white'>
+                                <Phone
+                                    size={16}
+                                    aria-hidden='true'
+                                    className='text-primary100'
+                                />
+                                +234 903 614 3222
+                            </a>
+                        </div>
+                        <p className='text-[12px] text-white/40'>
+                            © {new Date().getFullYear()} Yejzila. All rights
+                            reserved.
+                        </p>
                     </div>
                 </SheetContent>
             </Sheet>

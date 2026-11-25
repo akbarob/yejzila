@@ -31,6 +31,12 @@ import { getJobBySlug } from '@/lib/sanity';
 import ApplicationForm from '@/components/careers/ApplicationForm';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import {
+    SITE_NAME,
+    OG_IMAGE,
+    buildJobPostingJsonLd,
+    jsonLdScript,
+} from '@/lib/seo';
 
 
 // ── Types and Helper Functions ────────────────────────────────────────────────
@@ -68,29 +74,30 @@ export async function generateMetadata({
     const { slug } = await params;
     const job = await getJobBySlug(slug);
 
-    if (!job) return { title: 'Job Not Found' };
+    if (!job) return { title: 'Job Not Found', robots: { index: false } };
+
+    const description = `Apply for the ${job.title} position at ${SITE_NAME}. ${job.location} · ${job.employmentType}.`;
+    const image = { ...OG_IMAGE, alt: `${job.title} at Yejzila` };
 
     return {
         title: `${job.title} — ${job.department}`,
-        description: `Apply for the ${job.title} position at Yejzila Resources Limited. ${job.location} · ${job.employmentType}.`,
+        description,
+        alternates: {
+            canonical: `/careers/${slug}`,
+        },
         openGraph: {
             title: `${job.title} | Yejzila Careers`,
-            description: `Apply for the ${job.title} position at Yejzila Resources Limited. ${job.location} · ${job.employmentType}.`,
-            url: `https://yejzila.com/careers/${slug}`,
-            images: [
-                {
-                    url: 'https://www.imghippo.com/i/iglOM1720687574.png',
-                    width: 1200,
-                    height: 630,
-                    alt: `${job.title} at Yejzila`,
-                },
-            ],
+            description,
+            url: `/careers/${slug}`,
+            siteName: SITE_NAME,
+            type: 'website',
+            images: [image],
         },
         twitter: {
             card: 'summary_large_image',
             title: `${job.title} | Yejzila Careers`,
-            description: `Apply for the ${job.title} position at Yejzila Resources Limited. ${job.location} · ${job.employmentType}.`,
-            images: ['https://www.imghippo.com/i/iglOM1720687574.png'],
+            description,
+            images: [image],
         },
     };
 }
@@ -115,8 +122,19 @@ export default async function JobDetailPage({
         ? new Date(job.deadline) < new Date()
         : false;
 
+    // JobPosting structured data — null when the listing lacks a required field
+    const jobPostingJsonLd = buildJobPostingJsonLd(job);
+
     return (
         <>
+            {jobPostingJsonLd && (
+                <script
+                    type='application/ld+json'
+                    dangerouslySetInnerHTML={{
+                        __html: jsonLdScript(jobPostingJsonLd),
+                    }}
+                />
+            )}
             <Navbar />
 
             <main className='min-h-screen bg-white'>

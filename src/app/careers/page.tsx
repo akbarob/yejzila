@@ -26,32 +26,28 @@ import JobFilters from '@/components/careers/JobFilters';
 import TalentPipeline from '@/components/careers/TalentPipeline';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { SITE_NAME, CAREERS_DESCRIPTION, OG_IMAGE } from '@/lib/seo';
 
 // SEO metadata for the careers page
 export const metadata = {
     title: 'Careers',
-    description:
-        'Explore exciting career opportunities at Yejzila Resources Limited in Oil & Gas, Mining, and Energy sectors across Nigeria and beyond.',
+    description: CAREERS_DESCRIPTION,
+    alternates: {
+        canonical: '/careers',
+    },
     openGraph: {
-        title: 'Careers | Yejzila Resources Limited',
-        description:
-            'Explore exciting career opportunities at Yejzila Resources Limited in Oil & Gas, Mining, and Energy sectors.',
-        url: 'https://yejzila.com/careers',
-        images: [
-            {
-                url: 'https://www.imghippo.com/i/iglOM1720687574.png',
-                width: 1200,
-                height: 630,
-                alt: 'Yejzila Careers',
-            },
-        ],
+        title: `Careers | ${SITE_NAME}`,
+        description: CAREERS_DESCRIPTION,
+        url: '/careers',
+        siteName: SITE_NAME,
+        type: 'website',
+        images: [OG_IMAGE],
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Careers | Yejzila Resources Limited',
-        description:
-            'Explore exciting career opportunities at Yejzila Resources Limited in Oil & Gas, Mining, and Energy sectors.',
-        images: ['https://www.imghippo.com/i/iglOM1720687574.png'],
+        title: `Careers | ${SITE_NAME}`,
+        description: CAREERS_DESCRIPTION,
+        images: [OG_IMAGE],
     },
 };
 
