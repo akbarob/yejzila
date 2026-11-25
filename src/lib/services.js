@@ -16,6 +16,7 @@ export const serviceGroups = [
             'HSE, Fire & Safety Equipment',
             'Mining & Mineral Processing Supplies',
             'Industrial Chemicals & Environmental Supplies',
+            'Environmental & Spill Response Supplies',
         ],
         images: [
             {
