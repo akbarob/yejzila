@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { serviceGroups } from '@/lib/services';
 import { 
     InstagramLogo, 
     LinkedinLogo, 
@@ -34,13 +35,11 @@ export default function Footer() {
         { title: 'Contact Us', href: '/#contactus' },
     ];
 
-    const services = [
-        { title: 'Drilling Services', href: '/#services' },
-        { title: 'Processing & Distribution', href: '/#services' },
-        { title: 'Maintenance & Support', href: '/#services' },
-        { title: 'Engineering & Consulting', href: '/#services' },
-        { title: 'Environmental Services', href: '/#services' },
-    ];
+    // Each link scrolls to that group in the services section on the home page
+    const services = serviceGroups.map((group) => ({
+        title: group.title,
+        href: `/#${group.slug}`,
+    }));
 
     return (
         <footer className='bg-[#0B0F1A] text-white pt-20 pb-10 border-t border-white/5 relative overflow-hidden'>
@@ -57,11 +56,15 @@ export default function Footer() {
                                 src='/assets/Navlogo.svg'
                                 alt='Yejzila Logo'
                                 fill
-                                className='object-contain'
+                                className='object-contain object-left'
                             />
                         </div>
-                        <p className='text-gray-400 text-sm leading-relaxed max-w-[280px]'>
-                            A premier diverse company specializing in Oil, Gas, Energy, and Mining. Unlocking brilliance through sustainable resource management.
+                        <p className='text-gray-400 text-sm leading-relaxed md:max-w-[280px]'>
+                            A Premier Procurement and Supply Solutions Company
+                            serving the Oil, Gas, Energy and Mining industries.
+                            Unlocking Brilliance through strategic sourcing,
+                            reliable supply and integrated procurement
+                            solutions.
                         </p>
                         <div className='flex items-center gap-4 pt-4'>
                             <a 
@@ -83,10 +86,10 @@ export default function Footer() {
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className='text-sm font-bold uppercase tracking-widest text-white mb-8 relative inline-block'>
+                        <h2 className='text-sm font-bold uppercase tracking-widest text-white mb-8 relative inline-block'>
                             Quick Links
                             <span className='absolute bottom-0 left-0 w-8 h-0.5 bg-primary100 -mb-2' />
-                        </h4>
+                        </h2>
                         <ul className='space-y-4'>
                             {quickLinks.map((link) => (
                                 <li key={link.title}>
@@ -104,10 +107,10 @@ export default function Footer() {
 
                     {/* Services Link List */}
                     <div>
-                        <h4 className='text-sm font-bold uppercase tracking-widest text-white mb-8 relative inline-block'>
+                        <h2 className='text-sm font-bold uppercase tracking-widest text-white mb-8 relative inline-block'>
                             Our Services
                             <span className='absolute bottom-0 left-0 w-8 h-0.5 bg-primary100 -mb-2' />
-                        </h4>
+                        </h2>
                         <ul className='space-y-4'>
                             {services.map((service) => (
                                 <li key={service.title}>
@@ -125,10 +128,10 @@ export default function Footer() {
 
                     {/* Contact Info */}
                     <div>
-                        <h4 className='text-sm font-bold uppercase tracking-widest text-white mb-8 relative inline-block'>
+                        <h2 className='text-sm font-bold uppercase tracking-widest text-white mb-8 relative inline-block'>
                             Get In Touch
                             <span className='absolute bottom-0 left-0 w-8 h-0.5 bg-primary100 -mb-2' />
-                        </h4>
+                        </h2>
                         <ul className='space-y-6'>
                             <li className='flex items-start gap-4'>
                                 <div className='bg-primary100/10 p-2.5 rounded-lg shrink-0 mt-1'>

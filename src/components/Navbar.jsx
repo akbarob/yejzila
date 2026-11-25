@@ -10,99 +10,133 @@
 
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import MobileNav from './MobileNav';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import MobileNav from './MobileNav';
 
-export default function Navbar() {
-    const [scrollY, setScrollY] = useState(0);
-    const [scrollDirection, setScrollDirection] = useState('up');
-    const [navbarBg, setNavbarBg] = useState(false);
-    useEffect(() => {
-        let lastScrollY = window.scrollY;
-
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-            setScrollY(currentScrollY);
-
-            if (
-                currentScrollY > lastScrollY &&
-                currentScrollY > 300 &&
-                scrollDirection !== 'down'
-            ) {
-                setScrollDirection('down');
-            } else if (
-                currentScrollY < lastScrollY &&
-                scrollDirection !== 'up'
-            ) {
-                setScrollDirection('up');
-            }
-
-            if (currentScrollY <= 300) {
-                setScrollDirection('up'); // Always show navbar if within 100px from the top
-            }
-
-            if (currentScrollY > 50) {
-                setNavbarBg(true);
-            } else {
-                setNavbarBg(false);
-            }
-
-            lastScrollY = currentScrollY;
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [scrollDirection]);
-
-    return (
-        <nav
-            className={`z-50 fixed top h-[80px] w-full transition-transform duration-300 ${
-                scrollDirection === 'up'
-                    ? 'transform translate-y-0'
-                    : 'transform -translate-y-full'
-            } flex justify-between pl-5 pr-10 lg:px-28 xl:px-40 items-center ${
-                navbarBg
-                    ? 'backdrop-blur-sm bg-primary100/20 lg:bg-transparent text-black border-b-2 border-b-primary100'
-                    : 'text-white'
-            }`}>
-                <Link href={'/'}> 
-                 <Image
-                src='/assets/Navlogo.svg'
-                alt='Yejzila logo'
-                width={300}
-                height={300}
-                priority
-                className='w-[100px] lg:w-[150px] h-auto object-contain'
-            /></Link>
-          
-            {/* DESKTOP NAV */}
-            <ul className='hidden lg:flex gap-10 justify-end text-md w-full'>
-                {links?.map((link, i) => (
-                    <li
-                        key={i}
-                        className='hover:text-primary100 cursor-pointer transition-all ease-in duration700 font-semibold p-2 hover:border-b hover:border-b-primary100'>
-                        <Link href={link?.link}>{link?.title}</Link>
-                    </li>
-                ))}
-            </ul>
-
-            {/* MOBILE */}
-            <div>
-                <MobileNav links={links} navbarBg={navbarBg} />
-            </div>
-        </nav>
-    );
-}
-
-// Navigation links — "Careers" added to route users to the /careers page
+// Navigation links — "Careers" routes users to the /careers page
 const links = [
     { title: 'Home', link: '/' },
     { title: 'About us', link: '/#aboutus' },
     { title: 'Projects', link: '/' },
     { title: 'Services', link: '/#services' },
     { title: 'Careers', link: '/careers' },
-    { title: 'Contact Us', link: '/#contactus' },
 ];
+
+const contactLink = { title: 'Contact Us', link: '/#contactus' };
+
+export default function Navbar() {
+    const pathname = usePathname();
+    const [hidden, setHidden] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        let lastScrollY = window.scrollY;
+
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            // Solid bar once the page has moved off the very top
+            setScrolled(currentScrollY > 50);
+
+            // Hide while scrolling down the page, show again on scroll up
+            if (currentScrollY <= 300) {
+                setHidden(false);
+            } else if (currentScrollY > lastScrollY + 4) {
+                setHidden(true);
+            } else if (currentScrollY < lastScrollY - 4) {
+                setHidden(false);
+            }
+
+            lastScrollY = currentScrollY;
+        };
+
+        handleScroll();
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // Only whole-page links can be "current"; section links share the home path
+    const isActive = (link, index) =>
+        link.link === '/careers'
+            ? pathname.startsWith('/careers')
+            : index === 0 && pathname === '/';
+
+    return (
+        <nav
+            aria-label='Main'
+            className={`fixed inset-x-0 top-0 z-50 text-white transition-[transform,background-color,box-shadow,height] duration-300 ease-out motion-reduce:transition-none ${
+                hidden ? '-translate-y-full' : 'translate-y-0'
+            } ${
+                scrolled
+                    ? 'h-[64px] bg-slate-950/85 shadow-lg shadow-black/20 backdrop-blur-md'
+                    : 'h-[80px] bg-gradient-to-b from-black/60 to-transparent'
+            }`}>
+            <div className='flex h-full items-center justify-between gap-6 px-5 lg:px-28 xl:px-40'>
+                <Link
+                    href='/'
+                    aria-label='Yejzila home'
+                    className='shrink-0 rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary100'>
+                    <Image
+                        src='/assets/Navlogo.svg'
+                        alt='Yejzila logo'
+                        width={300}
+                        height={300}
+                        priority
+                        className={`h-auto object-contain transition-[width] duration-300 ease-out ${
+                            scrolled
+                                ? 'w-[92px] lg:w-[112px]'
+                                : 'w-[100px] lg:w-[140px]'
+                        }`}
+                    />
+                </Link>
+
+                {/* DESKTOP NAV */}
+                <div className='hidden items-center gap-8 lg:flex'>
+                    <ul className='flex items-center gap-8 text-[15px] font-semibold'>
+                        {links.map((link, i) => {
+                            const active = isActive(link, i);
+                            return (
+                                <li key={link.title}>
+                                    <Link
+                                        href={link.link}
+                                        aria-current={
+                                            active ? 'page' : undefined
+                                        }
+                                        className={`group relative block rounded-sm py-2 transition-colors duration-200 hover:text-primary100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary100 ${
+                                            active
+                                                ? 'text-primary100'
+                                                : 'text-white'
+                                        }`}>
+                                        {link.title}
+                                        <span
+                                            aria-hidden='true'
+                                            className={`absolute inset-x-0 -bottom-0.5 h-0.5 origin-left rounded-full bg-primary100 transition-transform duration-300 ease-out group-hover:scale-x-100 ${
+                                                active
+                                                    ? 'scale-x-100'
+                                                    : 'scale-x-0'
+                                            }`}
+                                        />
+                                    </Link>
+                                </li>
+                            );
+                        })}
+                    </ul>
+
+                    <Link
+                        href={contactLink.link}
+                        className='inline-flex h-10 items-center rounded-full bg-primary100 px-5 text-[15px] font-semibold text-slate-950 transition-[background-color,transform] duration-200 hover:bg-[#ffb93f] active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'>
+                        {contactLink.title}
+                    </Link>
+                </div>
+
+                {/* MOBILE */}
+                <MobileNav
+                    links={links}
+                    contactLink={contactLink}
+                    pathname={pathname}
+                />
+            </div>
+        </nav>
+    );
+}

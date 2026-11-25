@@ -63,25 +63,14 @@ export default function WhatWeOffer() {
 
     return (
         <div className="w-full flex flex-col px-10 lg:px-44 py-24 justify-center items-start gap-6 bg-white">
-            <motion.h3
+            <motion.h2
                 ref={ref}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
                 variants={titleVariants}
-                className="font-bold text-4xl text-left tracking-tight">
+                className="font-bold text-4xl text-left tracking-tight mb-4">
                 What we offer
-            </motion.h3>
-
-            <motion.p
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="w-full text-slate-500 mb-10 text-base max-w-4xl">
-                <span className="text-primary100 font-bold text-2xl">Yejzila</span>{" "}
-                Support Services in conjunction with Flenco Engineers Fluid
-                System&apos;s production ranges offer a diverse array of
-                comprehensive engineering solutions that redefine industry standards.
-            </motion.p>
+            </motion.h2>
 
             <div className="grid md:grid-cols-2 xl:grid-cols-3 w-full gap-6">
                 {Offers.map((offer, i) => {
@@ -105,9 +94,9 @@ export default function WhatWeOffer() {
                                 />
                             </div>
 
-                            <h4 className="font-semibold text-lg text-slate-800 group-hover:text-primary100 transition-colors duration-300">
+                            <h3 className="font-semibold text-lg text-slate-800 group-hover:text-primary100 transition-colors duration-300">
                                 {offer.text}
-                            </h4>
+                            </h3>
 
                             <p className="text-slate-500 text-sm leading-relaxed">
                                 {offer.description}

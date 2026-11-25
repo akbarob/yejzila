@@ -16,12 +16,14 @@ import { Button } from './ui/button';
 const CarouselImages = [
     {
         image: '/assets/carousel1.jpg',
+        alt: 'Refinery process units and flare stacks lit up at dusk',
         title: 'Yejzila - Premier Oil, Gas, Energy & Mining Solutions',
         text: 'Leading provider of innovative energy solutions, mining equipment, and industrial services. Powering your future with expert procurement and supply chain excellence.',
         buttontext: 'Discover Our Services',
     },
     {
         image: '/assets/carousel4.png',
+        alt: 'Large pipeline loops at a gas processing facility',
         title: 'Yejzila Oil & Gas Services',
         text: 'Comprehensive oilfield equipment, drilling tools, and energy infrastructure solutions. Unleashing energy potential for a secured tomorrow.',
         buttontext: 'Explore Oil & Gas',
@@ -32,12 +34,14 @@ const CarouselImages = [
         // image: '/assets/photovoltaic-4525178_1920.jpg',
         image: '/assets/photovoltaic-system-2742302_1920.jpg',
         // image: '/assets/cesc-banner.webp',
+        alt: 'Rows of solar panels in a green field',
         title: 'Yejzila Renewable Energy Solutions',
         text: "Sustainable energy systems, solar power solutions, and green technology procurement. Harnessing nature's power through infinite possibilities for a cleaner future.",
         buttontext: 'Go Green Today',
     },
     {
         image: '/assets/carousel3.jpg',
+        alt: 'Bucket-wheel excavator working in an open-pit mine',
         title: 'Yejzila Mining & Heavy Equipment Supply',
         text: "Expert mining equipment procurement, heavy machinery supply, and mineral resource solutions. Unearthing tomorrow's resources today with lasting impact and future vision.",
         buttontext: 'Mining Solutions',
@@ -63,25 +67,29 @@ export default function Hero() {
                 modules={[Autoplay, Pagination, Navigation]}
                 spaceBetween={50}
                 slidesPerView={1}>
-                {CarouselImages?.map((image, i) => (
+                {CarouselImages?.map((image, i) => {
+                    // One <h1> per page: only the first slide's title is the h1
+                    const Title = i === 0 ? 'h1' : 'h2';
+                    return (
                     <SwiperSlide key={i} className='relative'>
                         <Image
                             src={image?.image}
-                            alt='hero'
+                            alt={image?.alt}
                             width={100}
                             height={100}
-                            priority
+                            // Only the first slide is visible on load
+                            priority={i === 0}
                             // quality={100}
-                            sizes='100'
+                            sizes='100vw'
                             className='w-full h-full object-center object-cover  absolute inset-x-0 inset-y-0 z-10'
                         />
                         <div className='z-50  flex flex-col justify-end items-start gap-4 absolute  inset-x-0 top-52 lg:bottom-52 px-10 lg:px-40'>
-                            <h1 className='text-3xl lg:text-6xl text-white font-bold'>
+                            <Title className='text-3xl lg:text-6xl text-white font-bold'>
                                 {image?.title}
-                            </h1>
-                            <h6 className='text-lg lg:text-xl text-white font-medium '>
+                            </Title>
+                            <p className='text-lg lg:text-xl text-white font-medium '>
                                 {image?.text}
-                            </h6>
+                            </p>
                             {/* <Button
                                 variant={"ghost"}
                                 className="border text-primary100 bg-white">
@@ -89,7 +97,8 @@ export default function Hero() {
                             </Button> */}
                         </div>
                     </SwiperSlide>
-                ))}
+                    );
+                })}
             </Swiper>
         </div>
     );

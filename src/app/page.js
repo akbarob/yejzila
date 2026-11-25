@@ -1,5 +1,5 @@
 import Aboutus from "@/components/Aboutus";
-import Expertise from "@/components/Expertise";
+// import Expertise from "@/components/Expertise";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
@@ -8,7 +8,7 @@ import WhatWeOffer from "@/components/WhatWeOffer";
 
 export const metadata = {
     alternates: {
-        canonical: 'https://yejzila.com',
+        canonical: '/',
     },
 };
 
@@ -26,9 +26,11 @@ export default function Home() {
             <div id="services">
                 <OurServices />
             </div>
+            {/* Our Expertise section hidden for now
             <div>
                 <Expertise />
             </div>
+            */}
             <div>
                 <WhatWeOffer />
             </div>

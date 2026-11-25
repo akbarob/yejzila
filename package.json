@@ -2,12 +2,14 @@
     "name": "yejzila",
     "version": "0.1.0",
     "private": true,
+    "engines": {
+        "node": "26.x"
+    },
     "scripts": {
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint",
-        "postbuild": "next-sitemap"
+        "lint": "next lint"
     },
     "dependencies": {
         "@hookform/resolvers": "^5.2.2",

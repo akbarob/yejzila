@@ -55,71 +55,136 @@ export default function Aboutus() {
     const Grid = [
         {
             title: 'Our Vision',
-            text: 'To be the preferred partner of choice in procurement, oil & gas, energy, mining, and workforce solutions across Africa and beyond',
+            text: 'To be a trusted leader in industrial procurement and supply solutions, driving excellence and sustainable growth.',
         },
         {
             title: 'Our Mission',
-            text: 'To provide world-class procurement, energy, and resource management services that deliver value, empower communities, and promote sustainable industrial growth.',
+            text: 'To deliver world-class, reliable, quality and cost-effective procurement solutions that meet industry needs and create lasting value.',
         },
         {
-            title: 'Our Value Proposition',
-            text: 'We deliver measurable results through proven excellence. Our multi-sector expertise drives operational efficiency while our commitment to local content development strengthens communities. By integrating cutting-edge technology with sustainable practices, we transform challenges into competitive advantages for our clients.',
+            title: 'Our Core Values — PACT',
+            values: [
+                {
+                    letter: 'P',
+                    name: 'Professionalism',
+                    text: 'Upholding high standards in every engagement.',
+                },
+                {
+                    letter: 'A',
+                    name: 'Accountability',
+                    text: 'Taking ownership and delivering on commitments.',
+                },
+                {
+                    letter: 'C',
+                    name: 'Customer Focus',
+                    text: 'Prioritising client needs and creating value.',
+                },
+                {
+                    letter: 'T',
+                    name: 'Trust',
+                    text: 'Building lasting relationships through integrity and reliability.',
+                },
+            ],
         },
     ];
     return (
         <div>
             {' '}
             <div className='h-full w-full bg-white flex flex-col p-10 lg:px-44 justify-center items-start gap-8 '>
-                <motion.h3
+                <motion.h2
                     ref={ref}
                     initial='hidden'
                     animate={isInView ? 'visible' : ''}
                     variants={titleVariants}
                     className='font-semibold text-4xl text-left'>
                     About Us
-                </motion.h3>
+                </motion.h2>
 
                 <p className='w-full  text-lg text-slate-600'>
                     <span className='text-primary100 text-2xl'>
                         YEJZILA Resources Limited
                     </span>{' '}
-                    is a dynamic and customer-focused solutions provider with
-                    expertise across procurement, oil & gas, energy, mining, and
-                    workforce resourcing. With a strong commitment to
-                    excellence, innovation, and community development, we
-                    deliver value-driven services that support industries,
-                    foster growth, and ensure sustainable partnerships. Our
-                    approach combines local knowledge with global best
-                    practices, enabling us to meet diverse client needs while
-                    promoting efficiency, cost optimization, and reliability.
+                    is an industrial procurement and supply solutions company
+                    serving the oil &amp; gas, energy and mining sectors. We
+                    specialise in sourcing and supplying industrial materials,
+                    equipment and operational essentials, supported by
+                    efficient supply chain coordination and a client-focused
+                    approach. Through reliable sourcing, strategic supplier
+                    relationships and cost-effective solutions, we support our
+                    clients’ operational needs, efficiency and business growth.
                 </p>
 
-                <div
-                    className='grid md:grid-cols-2 xl:grid-cols-3 gap-20 place-content-center mx-auto'
-                    ref={ref2}>
-                    {Grid.map((item, i) => {
-                        const isEven = i % 2 === 0;
-                        const itemVariants = isEven
-                            ? leftVariants
-                            : rightVariants;
-                        return (
-                            <motion.div
-                                className="max-w-[350px] hover:text-white md:w-full shadow shadow-primary100/20  rounded-[6px] bg-primary100/10 hover:bg-primary100 hover:scale-105 transition-all duration-700 ease-in-out flex flex-col p-6 h-[250px] gap-4"
-                                key={i}
-                                // initial="hidden"
-                                // animate={isInView2 ? "visible" : "null"}
-                                // variants={itemVariants}
-                            >
-                                <p className='font-semibold text-xl'>
-                                    {item.title}
-                                </p>
-                                <p className="text-left text-sm leading-[25.3px] tracking-wide line-clamp-6 text-slate-600 text-">
-                                    {item.text}
-                                </p>
-                            </motion.div>
-                        );
-                    })}
+                {/* Vision and Mission side by side */}
+                <div className='grid w-full gap-6 md:grid-cols-2' ref={ref2}>
+                    {Grid.filter((item) => item.text).map((item) => (
+                        <div
+                            key={item.title}
+                            className='group flex flex-col gap-3 rounded-[6px] border-l-4 border-primary100 bg-primary100/10 p-8 shadow shadow-primary100/20 transition-colors duration-500 ease-in-out hover:bg-primary100'>
+                            <p className='text-xl font-semibold'>
+                                {item.title}
+                            </p>
+                            <p className='text-left text-base leading-7 text-slate-600 transition-colors duration-500 group-hover:text-slate-900'>
+                                {item.text}
+                            </p>
+                        </div>
+                    ))}
                 </div>
+
+                {/* Core values: one letter of PACT per column */}
+                {Grid.filter((item) => item.values).map((item) => (
+                    <div
+                        key={item.title}
+                        className='w-full rounded-[6px] bg-primary100/10 p-8 shadow shadow-primary100/20 lg:p-10'>
+                        <div className='flex flex-col gap-2 lg:flex-row lg:items-baseline lg:justify-between lg:gap-10'>
+                            <p className='text-xl font-semibold'>
+                                {item.title}
+                            </p>
+                            <p className='max-w-[560px] text-base leading-7 text-slate-600 lg:text-right'>
+                                Every partnership is a PACT built on
+                                professionalism, accountability, customer focus
+                                and trust.
+                            </p>
+                        </div>
+
+                        <ul className='mt-8 grid gap-x-8 gap-y-8 sm:grid-cols-2 xl:grid-cols-4'>
+                            {item.values.map((value) => (
+                                <li
+                                    key={value.letter}
+                                    className='border-t-2 border-primary100 pt-4'>
+                                    <span
+                                        aria-hidden='true'
+                                        className='block text-6xl font-extrabold leading-none text-primary100'>
+                                        {value.letter}
+                                    </span>
+                                    <p className='mt-3 text-lg font-semibold text-slate-900'>
+                                        {value.name}
+                                    </p>
+                                    <p className='mt-1 text-base leading-7 text-slate-600'>
+                                        {value.text}
+                                    </p>
+                                </li>
+                            ))}
+                        </ul>
+
+                        {/* Sign-off: tagline centred between two rules */}
+                        <div className='mt-10 flex items-center gap-4 sm:gap-6'>
+                            <span
+                                aria-hidden='true'
+                                className='h-px flex-1 bg-primary100/40'
+                            />
+                            <p className='text-center text-lg font-semibold tracking-wide text-slate-900 sm:text-xl'>
+                                YEJZILA —{' '}
+                                <span className='text-primary100'>
+                                    Unlocking Brilliance.
+                                </span>
+                            </p>
+                            <span
+                                aria-hidden='true'
+                                className='h-px flex-1 bg-primary100/40'
+                            />
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     );
