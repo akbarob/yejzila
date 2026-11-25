@@ -30,9 +30,9 @@ export const serviceGroups = [
                 caption: 'Pipes, Valves, Flanges & Fittings',
             },
             {
-                src: '/assets/services/mechanical.jpg',
-                alt: 'Bearings, gears, motors and other mechanical parts on a steel bench',
-                caption: 'Mechanical, Electrical & Instrumentation',
+                src: '/assets/services/spill-control.jpg',
+                alt: 'Absorbent pads, a containment boom and a spill kit beside the water',
+                caption: 'Spill Control & Absorbent Solutions',
             },
         ],
     },
