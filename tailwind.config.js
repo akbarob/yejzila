@@ -18,6 +18,9 @@ module.exports = {
         extend: {
             colors: {
                 primary100: "#fda91b",
+                // Brand navy from the Yejzila Resources wordmark
+                navy100: "#1B2F6E",
+                navy900: "#0C1736",
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
                 ring: "hsl(var(--ring))",

@@ -68,7 +68,7 @@ export default function WhatWeOffer() {
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
                 variants={titleVariants}
-                className="font-bold text-4xl text-left tracking-tight mb-4">
+                className="font-bold text-4xl text-left tracking-tight mb-4 text-navy100">
                 What we offer
             </motion.h2>
 

@@ -140,14 +140,42 @@ export const serviceGroups = [
                 caption: 'Local & International Sourcing',
             },
             {
-                src: '/assets/services/warehouse-shelves.jpg',
-                alt: 'Warehouse aisles lined with storage shelves',
+                src: '/assets/services/yejzila-warehouse.jpg',
+                alt: 'Two staff in safety vests checking stock on tablets in a warehouse',
                 caption: 'Materials & Inventory Management',
             },
             {
                 src: '/assets/services/forklift.jpg',
                 alt: 'Forklift operator moving a boxed load',
                 caption: 'Procurement Expediting',
+            },
+        ],
+    },
+    {
+        slug: 'recruitment-manpower-services',
+        title: 'Recruitment & Manpower Services',
+        items: [
+            'Talent Sourcing & Recruitment',
+            'Technical & Non-Technical Staffing',
+            'Skilled & Unskilled Manpower Supply',
+            'Contract & Temporary Staffing',
+            'Personnel Placement & Workforce Support',
+        ],
+        images: [
+            {
+                src: '/assets/services/recruitment-interview.jpg',
+                alt: 'Interviewer shaking hands with a candidate across a desk',
+                caption: 'Talent Sourcing & Recruitment',
+            },
+            {
+                src: '/assets/services/technical-staff.jpg',
+                alt: 'Technician in a hard hat working on an electrical unit',
+                caption: 'Technical & Non-Technical Staffing',
+            },
+            {
+                src: '/assets/services/manpower-crew.jpg',
+                alt: 'Site crew in hard hats and high-visibility vests',
+                caption: 'Skilled & Unskilled Manpower Supply',
             },
         ],
     },

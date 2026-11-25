@@ -96,7 +96,7 @@ export default function Aboutus() {
                     initial='hidden'
                     animate={isInView ? 'visible' : ''}
                     variants={titleVariants}
-                    className='font-semibold text-4xl text-left'>
+                    className='font-semibold text-4xl text-left text-navy100'>
                     About Us
                 </motion.h2>
 
@@ -120,7 +120,7 @@ export default function Aboutus() {
                         <div
                             key={item.title}
                             className='group flex flex-col gap-3 rounded-[6px] border-l-4 border-primary100 bg-primary100/10 p-8 shadow shadow-primary100/20 transition-colors duration-500 ease-in-out hover:bg-primary100'>
-                            <p className='text-xl font-semibold'>
+                            <p className='text-xl font-semibold text-navy100'>
                                 {item.title}
                             </p>
                             <p className='text-left text-base leading-7 text-slate-600 transition-colors duration-500 group-hover:text-slate-900'>
@@ -136,7 +136,7 @@ export default function Aboutus() {
                         key={item.title}
                         className='w-full rounded-[6px] bg-primary100/10 p-8 shadow shadow-primary100/20 lg:p-10'>
                         <div className='flex flex-col gap-2 lg:flex-row lg:items-baseline lg:justify-between lg:gap-10'>
-                            <p className='text-xl font-semibold'>
+                            <p className='text-xl font-semibold text-navy100'>
                                 Our Core Values —{' '}
                                 <span className='text-primary100'>PACT</span>
                             </p>
@@ -157,7 +157,7 @@ export default function Aboutus() {
                                         className='block text-6xl font-extrabold leading-none text-primary100'>
                                         {value.letter}
                                     </span>
-                                    <p className='mt-3 text-lg font-semibold text-slate-900'>
+                                    <p className='mt-3 text-lg font-semibold text-navy100'>
                                         {value.name}
                                     </p>
                                     <p className='mt-1 text-base leading-7 text-slate-600'>
@@ -173,7 +173,7 @@ export default function Aboutus() {
                                 aria-hidden='true'
                                 className='hidden h-px flex-1 bg-primary100/40 sm:block'
                             />
-                            <p className='w-full text-center text-lg font-semibold tracking-wide text-slate-900 sm:w-auto sm:text-xl'>
+                            <p className='w-full text-center text-lg font-semibold tracking-wide text-navy100 sm:w-auto sm:text-xl'>
                                 YEJZILA
                                 <span className='block whitespace-nowrap text-primary100'>
                                     Unlocking Brilliance.
