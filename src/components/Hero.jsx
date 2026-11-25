@@ -17,15 +17,15 @@ const CarouselImages = [
     {
         image: '/assets/carousel1.jpg',
         alt: 'Refinery process units and flare stacks lit up at dusk',
-        title: 'Yejzila - Premier Oil, Gas, Energy & Mining Solutions',
-        text: 'Leading provider of innovative energy solutions, mining equipment, and industrial services. Powering your future with expert procurement and supply chain excellence.',
+        title: 'Yejzila – Premier Procurement & Supply Solutions',
+        text: 'Integrated procurement and supply solutions across Oil & Gas, Energy and Mining. Connecting industries to quality products, reliable sourcing and efficient supply chain solutions.',
         buttontext: 'Discover Our Services',
     },
     {
         image: '/assets/carousel4.png',
         alt: 'Large pipeline loops at a gas processing facility',
-        title: 'Yejzila Oil & Gas Services',
-        text: 'Comprehensive oilfield equipment, drilling tools, and energy infrastructure solutions. Unleashing energy potential for a secured tomorrow.',
+        title: 'Yejzila Oil & Gas Procurement',
+        text: 'Specialised sourcing and supply of oilfield equipment, drilling materials, pipeline components, HSE products and industrial consumables for upstream, midstream and downstream operations.',
         buttontext: 'Explore Oil & Gas',
     },
 
@@ -35,15 +35,15 @@ const CarouselImages = [
         image: '/assets/photovoltaic-system-2742302_1920.jpg',
         // image: '/assets/cesc-banner.webp',
         alt: 'Rows of solar panels in a green field',
-        title: 'Yejzila Renewable Energy Solutions',
-        text: "Sustainable energy systems, solar power solutions, and green technology procurement. Harnessing nature's power through infinite possibilities for a cleaner future.",
+        title: 'Yejzila Energy Procurement Solutions',
+        text: 'Procurement and supply of conventional and renewable energy equipment, solar systems, electrical components and power infrastructure materials, supporting sustainable energy development.',
         buttontext: 'Go Green Today',
     },
     {
         image: '/assets/carousel3.jpg',
         alt: 'Bucket-wheel excavator working in an open-pit mine',
-        title: 'Yejzila Mining & Heavy Equipment Supply',
-        text: "Expert mining equipment procurement, heavy machinery supply, and mineral resource solutions. Unearthing tomorrow's resources today with lasting impact and future vision.",
+        title: 'Yejzila Mining & Industrial Procurement',
+        text: 'Reliable sourcing and supply of mining equipment, heavy machinery, mineral processing materials and operational essentials for mining and mineral resource development.',
         buttontext: 'Mining Solutions',
     },
 ];
@@ -83,11 +83,17 @@ export default function Hero() {
                             sizes='100vw'
                             className='w-full h-full object-center object-cover  absolute inset-x-0 inset-y-0 z-10'
                         />
-                        <div className='z-50  flex flex-col justify-end items-start gap-4 absolute  inset-x-0 top-52 lg:bottom-52 px-10 lg:px-40'>
-                            <Title className='text-3xl lg:text-6xl text-white font-bold'>
+                        {/* Darkens the lower half of the photo so the text stays readable */}
+                        <div
+                            aria-hidden='true'
+                            className='absolute inset-0 z-20 bg-gradient-to-t from-black/75 via-black/35 to-transparent'
+                        />
+                        {/* Anchored above the slide dots on phones so long text never runs off the hero */}
+                        <div className='z-50 flex flex-col justify-end items-start gap-3 lg:gap-4 absolute inset-x-0 bottom-14 lg:top-52 lg:bottom-52 px-6 sm:px-10 lg:px-40'>
+                            <Title className='text-2xl sm:text-3xl lg:text-6xl text-white font-bold'>
                                 {image?.title}
                             </Title>
-                            <p className='text-lg lg:text-xl text-white font-medium '>
+                            <p className='text-[15px] leading-relaxed sm:text-lg lg:text-xl lg:max-w-4xl text-white font-medium'>
                                 {image?.text}
                             </p>
                             {/* <Button
