@@ -137,7 +137,8 @@ export default function Aboutus() {
                         className='w-full rounded-[6px] bg-primary100/10 p-8 shadow shadow-primary100/20 lg:p-10'>
                         <div className='flex flex-col gap-2 lg:flex-row lg:items-baseline lg:justify-between lg:gap-10'>
                             <p className='text-xl font-semibold'>
-                                {item.title}
+                                Our Core Values —{' '}
+                                <span className='text-primary100'>PACT</span>
                             </p>
                             <p className='max-w-[560px] text-base leading-7 text-slate-600 lg:text-right'>
                                 Every partnership is a PACT built on
@@ -170,17 +171,17 @@ export default function Aboutus() {
                         <div className='mt-10 flex items-center gap-4 sm:gap-6'>
                             <span
                                 aria-hidden='true'
-                                className='h-px flex-1 bg-primary100/40'
+                                className='hidden h-px flex-1 bg-primary100/40 sm:block'
                             />
-                            <p className='text-center text-lg font-semibold tracking-wide text-slate-900 sm:text-xl'>
-                                YEJZILA —{' '}
-                                <span className='text-primary100'>
+                            <p className='w-full text-center text-lg font-semibold tracking-wide text-slate-900 sm:w-auto sm:text-xl'>
+                                YEJZILA
+                                <span className='block whitespace-nowrap text-primary100'>
                                     Unlocking Brilliance.
                                 </span>
                             </p>
                             <span
                                 aria-hidden='true'
-                                className='h-px flex-1 bg-primary100/40'
+                                className='hidden h-px flex-1 bg-primary100/40 sm:block'
                             />
                         </div>
                     </div>
