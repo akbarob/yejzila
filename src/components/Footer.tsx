@@ -76,7 +76,10 @@ export default function Footer() {
                                 <InstagramLogo size={20} weight='fill' />
                             </a>
                             <a 
-                                href='#' 
+                                href='https://www.linkedin.com/company/yejzila-resources-limited/' 
+                                target='_blank' 
+                                rel='noopener noreferrer'
+                                aria-label='Yejzila Resources Limited on LinkedIn'
                                 className='w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-primary100 hover:text-white hover:border-primary100 transition-all duration-300'
                             >
                                 <LinkedinLogo size={20} weight='fill' />
