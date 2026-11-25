@@ -35,7 +35,7 @@ export default function MobileNav({ links, contactLink, pathname }) {
 
                 <SheetContent
                     side='right'
-                    className='flex w-[86vw] max-w-[340px] flex-col gap-0 border-l border-white/10 bg-slate-950 p-0 text-white [&>button]:right-4 [&>button]:top-5 [&>button]:flex [&>button]:h-10 [&>button]:w-10 [&>button]:items-center [&>button]:justify-center [&>button]:rounded-xl [&>button]:border [&>button]:border-white/15 [&>button]:text-white [&>button]:opacity-100 [&>button_svg]:h-5 [&>button_svg]:w-5'>
+                    className='flex w-[86vw] max-w-[340px] flex-col gap-0 border-l border-white/10 bg-navy900 p-0 text-white [&>button]:right-4 [&>button]:top-5 [&>button]:flex [&>button]:h-10 [&>button]:w-10 [&>button]:items-center [&>button]:justify-center [&>button]:rounded-xl [&>button]:border [&>button]:border-white/15 [&>button]:text-white [&>button]:opacity-100 [&>button_svg]:h-5 [&>button_svg]:w-5'>
                     {/* Header */}
                     <SheetHeader className='flex h-20 flex-row items-center space-y-0 border-b border-white/10 px-6'>
                         <SheetTitle>

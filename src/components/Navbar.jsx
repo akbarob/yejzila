@@ -69,7 +69,7 @@ export default function Navbar() {
                 hidden ? '-translate-y-full' : 'translate-y-0'
             } ${
                 scrolled
-                    ? 'h-[64px] bg-slate-950/85 shadow-lg shadow-black/20 backdrop-blur-md'
+                    ? 'h-[64px] bg-navy900/90 shadow-lg shadow-black/20 backdrop-blur-md'
                     : 'h-[80px] bg-gradient-to-b from-black/60 to-transparent'
             }`}>
             <div className='flex h-full items-center justify-between gap-6 px-5 lg:px-28 xl:px-40'>

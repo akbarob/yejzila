@@ -29,14 +29,14 @@ export default function OurServices() {
                 initial='hidden'
                 animate={isInView ? 'visible' : ''}
                 variants={titleVariants}
-                className='font-semibold text-4xl text-left'>
+                className='font-semibold text-4xl text-left text-navy900'>
                 Procurement &amp; Supply Capabilities
             </motion.h2>
 
             <p className='w-full max-w-[800px] text-lg text-slate-700'>
-                Five areas of procurement and supply support, from technical
-                and industrial materials to facilities, events and supply
-                chain services.
+                Six areas of procurement and supply support, from technical
+                and industrial materials to facilities, events, supply chain
+                and manpower services.
             </p>
 
             <div className='flex w-full flex-col gap-6'>
@@ -50,7 +50,7 @@ export default function OurServices() {
                             <div>
                                 <h3
                                     id={`${group.slug}-title`}
-                                    className='border-l-4 border-primary100 pl-4 text-2xl font-semibold leading-snug text-slate-900'>
+                                    className='border-l-4 border-primary100 pl-4 text-2xl font-semibold leading-snug text-navy100'>
                                     {group.title}
                                 </h3>
                                 <ul className='mt-6 flex flex-col gap-3'>
@@ -71,18 +71,20 @@ export default function OurServices() {
                             </div>
 
                             <ul
-                                className={`grid gap-4 sm:grid-cols-3 ${
-                                    group.images.length > 3
-                                        ? 'grid-cols-2'
-                                        : 'grid-cols-1'
+                                className={`grid gap-4 ${
+                                    group.images.length === 2
+                                        ? 'grid-cols-1 sm:grid-cols-2'
+                                        : group.images.length > 3
+                                          ? 'grid-cols-2 sm:grid-cols-3'
+                                          : 'grid-cols-1 sm:grid-cols-3'
                                 }`}>
                                 {group.images.map((image) => (
                                     <li key={image.src}>
                                         <figure>
                                             <div className={`relative aspect-[4/3] overflow-hidden rounded-[6px] bg-slate-100 ${
-                                                    group.images.length > 3
-                                                        ? ''
-                                                        : 'sm:aspect-[3/4]'
+                                                    group.images.length === 3
+                                                        ? 'sm:aspect-[3/4]'
+                                                        : ''
                                                 }`}>
                                                 <Image
                                                     src={image.src}

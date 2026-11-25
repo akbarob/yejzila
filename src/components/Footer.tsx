@@ -42,7 +42,7 @@ export default function Footer() {
     }));
 
     return (
-        <footer className='bg-[#0B0F1A] text-white pt-20 pb-10 border-t border-white/5 relative overflow-hidden'>
+        <footer className='bg-navy900 text-white pt-20 pb-10 border-t border-white/5 relative overflow-hidden'>
             {/* Background decorative elements to match Hero */}
             <div className='absolute top-0 right-0 w-[500px] h-[500px] bg-primary100/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none' />
             <div className='absolute bottom-0 left-0 w-[300px] h-[300px] bg-primary100/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none' />
