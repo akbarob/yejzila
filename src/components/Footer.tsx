@@ -149,6 +149,22 @@ export default function Footer() {
                             </li>
                             <li className='flex items-start gap-4'>
                                 <div className='bg-primary100/10 p-2.5 rounded-lg shrink-0 mt-1'>
+                                    <LinkedinLogo size={18} weight='duotone' className='text-primary100' />
+                                </div>
+                                <div className='flex flex-col'>
+                                    <span className='text-[10px] font-bold text-gray-500 uppercase tracking-tighter'>LinkedIn</span>
+                                    <a
+                                        href='https://www.linkedin.com/company/yejzila-resources-limited/'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='text-sm text-gray-300 hover:text-primary100 transition-colors font-semibold'
+                                    >
+                                        Yejzila Resources Limited
+                                    </a>
+                                </div>
+                            </li>
+                            <li className='flex items-start gap-4'>
+                                <div className='bg-primary100/10 p-2.5 rounded-lg shrink-0 mt-1'>
                                     <Phone size={18} weight='duotone' className='text-primary100' />
                                 </div>
                                 <div className='flex flex-col gap-1'>
