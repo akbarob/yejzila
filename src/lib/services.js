@@ -74,6 +74,8 @@ export const serviceGroups = [
             'Camp & Accommodation Support',
             'Logistics, Warehousing & Distribution',
             'Waste Management & Sanitation',
+            'Interior Design, Space Planning & Fit-Out Solutions',
+            'Building Renovation & Refurbishment Support',
         ],
         images: [
             {
