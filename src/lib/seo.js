@@ -82,7 +82,7 @@ export function buildSiteJsonLd() {
                 ],
                 sameAs: [
                     'https://www.linkedin.com/company/yejzila-resources-limited/',
-                    'https://www.instagram.com/yejzila_resources',
+                    'https://www.instagram.com/yejzila',
                 ],
                 // Mirrors the capability groups shown on the home page
                 hasOfferCatalog: {

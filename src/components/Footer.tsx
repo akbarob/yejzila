@@ -68,7 +68,7 @@ export default function Footer() {
                         </p>
                         <div className='flex items-center gap-4 pt-4'>
                             <a 
-                                href='https://www.instagram.com/yejzila_resources' 
+                                href='https://www.instagram.com/yejzila' 
                                 target='_blank' 
                                 rel='noopener noreferrer'
                                 className='w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-primary100 hover:text-white hover:border-primary100 transition-all duration-300'
