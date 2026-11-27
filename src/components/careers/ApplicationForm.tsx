@@ -180,7 +180,7 @@ export default function ApplicationForm({
                 <div className='bg-green-100 p-4 rounded-full'>
                     <CheckCircle2 className='w-10 h-10 text-green-600' />
                 </div>
-                <h3 className='text-2xl font-semibold text-gray-900 tracking-tight'>
+                <h3 className='text-2xl font-semibold text-navy100 tracking-tight'>
                     Application Submitted!
                 </h3>
                 <p className='text-gray-600 max-w-sm leading-relaxed'>
@@ -427,7 +427,7 @@ export default function ApplicationForm({
                                                         <span className='text-xs font-bold text-gray-400 uppercase tracking-widest'>
                                                             Attached File
                                                         </span>
-                                                        <span className='text-sm font-semibold text-gray-900 truncate'>
+                                                        <span className='text-sm font-semibold text-navy100 truncate'>
                                                             {fileName}
                                                         </span>
                                                     </div>
@@ -452,7 +452,7 @@ export default function ApplicationForm({
                     <Button
                         type='submit'
                         disabled={status === 'loading'}
-                        className='max-w-[300px] w-full h-16 mx-auto border border-primary100/20 rounded-[20px] bg-primary100 text-white font-bold text-lg shadow-2xl shadow-primary100/30 hover:bg-primary100/90 hover:shadow-primary100/40 hover:-translate-y-1 active:scale-[0.98] transition-all duration-300 disabled:opacity-70 disabled:pointer-events-none'>
+                        className='flex w-full h-16 border border-primary100/20 rounded-[20px] bg-primary100 text-white font-bold text-lg shadow-2xl shadow-primary100/30 hover:bg-primary100/90 hover:shadow-primary100/40 hover:-translate-y-1 active:scale-[0.98] transition-all duration-300 disabled:opacity-70 disabled:pointer-events-none'>
                         {status === 'loading' ? (
                             <div className='flex items-center justify-center'>
                                 <Loader2 className='w-6 h-6 animate-spin mr-3' />

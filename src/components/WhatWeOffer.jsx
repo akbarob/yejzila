@@ -12,11 +12,16 @@ import {
     ArrowUpRight,
 } from "lucide-react";
 
-// Partner shown under the offer cards
-const partner = {
-    name: "Icren Services Limited",
-    href: "https://ng.linkedin.com/company/icren",
-};
+// Partners shown under the offer cards. `href` is optional.
+const partners = [
+    {
+        name: "Icren Services Limited",
+        href: "https://ng.linkedin.com/company/icren",
+    },
+    {
+        name: "Stephania Support Services",
+    },
+];
 
 const Offers = [
     {
@@ -114,9 +119,9 @@ export default function WhatWeOffer() {
                 })}
             </div>
 
-            {/* Partner */}
-            <div className="mt-4 flex w-full flex-col gap-6 rounded-2xl bg-navy900 p-7 text-white sm:flex-row sm:items-center sm:justify-between lg:p-8">
-                <div className="flex items-center gap-5">
+            {/* Partners */}
+            <div className="mt-4 w-full rounded-2xl bg-navy900 p-7 text-white lg:p-8">
+                <div className="flex items-center gap-4">
                     <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10">
                         <Handshake
                             size={24}
@@ -125,24 +130,36 @@ export default function WhatWeOffer() {
                             className="text-primary100"
                         />
                     </span>
-                    <div>
-                        <p className="text-sm font-medium text-white/70">
-                            Our partner
-                        </p>
-                        <h3 className="text-xl font-semibold leading-snug">
-                            {partner.name}
-                        </h3>
-                    </div>
+                    <h3 className="text-xl font-semibold leading-snug">
+                        Our partners
+                    </h3>
                 </div>
-                <a
-                    href={partner.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View ${partner.name} on LinkedIn`}
-                    className="inline-flex h-11 shrink-0 items-center gap-2 self-start rounded-full bg-primary100 px-5 text-[15px] font-semibold text-slate-950 transition-[background-color,transform] duration-200 hover:bg-[#ffb93f] active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:self-auto">
-                    View on LinkedIn
-                    <ArrowUpRight size={18} aria-hidden="true" />
-                </a>
+
+                <ul className="mt-6 grid gap-x-10 border-t border-white/10 md:grid-cols-2">
+                    {partners.map((partner) => (
+                        <li
+                            key={partner.name}
+                            className="flex min-h-[76px] flex-wrap items-center justify-between gap-x-6 gap-y-3 border-b border-white/10 py-4">
+                            <p className="text-lg font-semibold leading-snug">
+                                {partner.name}
+                            </p>
+                            {partner.href && (
+                                <a
+                                    href={partner.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={`View ${partner.name} on LinkedIn`}
+                                    className="inline-flex h-11 shrink-0 items-center gap-2 rounded-full bg-primary100 px-5 text-[15px] font-semibold text-slate-950 transition-[background-color,transform] duration-200 hover:bg-[#ffb93f] active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                                    View on LinkedIn
+                                    <ArrowUpRight
+                                        size={18}
+                                        aria-hidden="true"
+                                    />
+                                </a>
+                            )}
+                        </li>
+                    ))}
+                </ul>
             </div>
         </div>
     );

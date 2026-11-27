@@ -69,12 +69,8 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        if (applicationType === 'pipeline' && !categoryId?.trim()) {
-            return NextResponse.json(
-                { message: 'Category ID is required for pipeline applications.' },
-                { status: 400 }
-            );
-        }
+        // Pipeline applications may come without a category: the careers page
+        // falls back to a general pipeline form when no categories exist.
 
         // ── CV Upload ──────────────────────────────────────────────────────
         let resumeAssetRef: { _type: string; asset: { _type: string; _ref: string } } | undefined;
