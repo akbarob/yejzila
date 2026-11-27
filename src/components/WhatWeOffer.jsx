@@ -135,12 +135,13 @@ export default function WhatWeOffer() {
                     </h3>
                 </div>
 
-                <ul className="mt-6 grid gap-x-10 border-t border-white/10 md:grid-cols-2">
+                {/* Equal cards: a partner without a link looks no different */}
+                <ul className="mt-6 grid gap-4 md:grid-cols-2">
                     {partners.map((partner) => (
                         <li
                             key={partner.name}
-                            className="flex min-h-[76px] flex-wrap items-center justify-between gap-x-6 gap-y-3 border-b border-white/10 py-4">
-                            <p className="text-lg font-semibold leading-snug">
+                            className="flex min-h-[72px] items-center justify-between gap-4 rounded-xl border border-white/10 bg-white/5 px-5 py-3">
+                            <p className="text-base font-semibold leading-snug sm:text-lg">
                                 {partner.name}
                             </p>
                             {partner.href && (
@@ -149,10 +150,10 @@ export default function WhatWeOffer() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label={`View ${partner.name} on LinkedIn`}
-                                    className="inline-flex h-11 shrink-0 items-center gap-2 rounded-full bg-primary100 px-5 text-[15px] font-semibold text-slate-950 transition-[background-color,transform] duration-200 hover:bg-[#ffb93f] active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-                                    View on LinkedIn
+                                    className="-mr-2 inline-flex h-11 shrink-0 items-center gap-1.5 rounded-lg px-2 text-sm font-semibold text-primary100 transition-colors duration-200 hover:text-[#ffb93f] hover:underline hover:underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                                    LinkedIn
                                     <ArrowUpRight
-                                        size={18}
+                                        size={16}
                                         aria-hidden="true"
                                     />
                                 </a>
