@@ -75,7 +75,33 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
         setCurrentPage(1); // Reset to first page on search
     };
 
-    if (categories.length === 0) return null;
+    // No categories set up in the CMS yet: still let people apply to a
+    // general pipeline instead of rendering nothing.
+    if (categories.length === 0) {
+        return (
+            <section className='mt-24 pt-24 border-t border-gray-100'>
+                <div className='mx-auto max-w-2xl'>
+                    <div className='mb-10 text-center'>
+                        <span className='inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary100/10 text-primary100 text-[11px] font-bold tracking-widest uppercase mb-4'>
+                            <RocketLaunch size={16} weight='bold' />
+                            Always Open
+                        </span>
+                        <h2 className='text-4xl font-normal text-navy100 mb-2 tracking-tight'>
+                            Join our Talent Pipeline
+                        </h2>
+                        <p className='text-gray-500 font-medium text-base leading-relaxed'>
+                            Send us your details and CV, and we will keep your
+                            profile on file for future roles.
+                        </p>
+                    </div>
+                    <ApplicationForm
+                        applicationType='pipeline'
+                        categoryTitle='Talent'
+                    />
+                </div>
+            </section>
+        );
+    }
 
     return (
         <section className='mt-24 pt-24 border-t border-gray-100'>
@@ -85,7 +111,7 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
                         <RocketLaunch size={16} weight='bold' />
                         Always Open
                     </span>
-                    <h2 className='text-4xl  font-normal text-gray-900 mb-2 tracking-tight'>
+                    <h2 className='text-4xl  font-normal text-navy100 mb-2 tracking-tight'>
                         Join our Talent Pipeline
                     </h2>
                     <p className='text-gray-500 font-medium text-base leading-relaxed max-w-xl'>
@@ -147,7 +173,7 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
                                     <h3
                                         className={`text-lg font-normal capitalize tracking-tight leading-tight transition-colors ${
                                             selectedCategoryId === category._id
-                                                ? 'text-gray-900'
+                                                ? 'text-navy100'
                                                 : 'text-gray-700'
                                         }`}>
                                         {category.title}
@@ -200,7 +226,7 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
                                         className={`mt-2 inline-flex items-center justify-between w-full p-3.5 rounded-xl text-[11px] font-normal transition-all ${
                                             selectedCategoryId === category._id
                                                 ? 'bg-primary100 text-white'
-                                                : 'bg-white text-gray-900 border border-gray-100 group-hover:bg-primary100 group-hover:text-white'
+                                                : 'bg-white text-navy100 border border-gray-100 group-hover:bg-primary100 group-hover:text-white'
                                         }`}>
                                         <span>
                                             {selectedCategoryId === category._id
@@ -274,7 +300,7 @@ export default function TalentPipeline({ categories }: TalentPipelineProps) {
                 <div ref={formRef} className='lg:col-span-12 xl:col-span-5'>
                     <div className='sticky top-24 bg-white rounded-[40px] p-8 md:p-10 border-2 border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.04)]'>
                         <div className='mb-10 text-center'>
-                            <h3 className='text-2xl font-normal text-gray-900 mb-2 tracking-tight'>
+                            <h3 className='text-2xl font-normal text-navy100 mb-2 tracking-tight'>
                                 Apply for{' '}
                                 {selectedCategory?.title || 'Pipeline'}
                             </h3>

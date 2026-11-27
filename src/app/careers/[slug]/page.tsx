@@ -139,7 +139,7 @@ export default async function JobDetailPage({
 
             <main className='min-h-screen bg-white'>
                 {/* ── Hero / Header ──────────────────────────────────────────── */}
-                <section className='relative bg-[#0B0F1A] pt-32 pb-20 px-5 lg:px-20  overflow-hidden'>
+                <section className='relative bg-navy900 pt-32 pb-20 px-5 lg:px-20  overflow-hidden'>
                     {/* Background Decorative Element */}
                     <div className='absolute top-0 right-0 w-[500px] h-[500px] bg-primary100/10 blur-[120px] rounded-full -mr-48 -mt-48 pointer-events-none' />
                     <div className='absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-500/5 blur-[100px] rounded-full -ml-24 -mb-24 pointer-events-none' />
@@ -251,7 +251,7 @@ export default async function JobDetailPage({
                             {/* Job description — rich text from Sanity portable text */}
                             {job.description && (
                                 <div>
-                                    <h2 className='text-xl font-bold text-gray-900 mb-4'>
+                                    <h2 className='text-xl font-bold text-navy100 mb-4'>
                                         About This Role
                                     </h2>
                                     <div className='prose prose-gray max-w-none text-gray-600 leading-relaxed'>
@@ -264,7 +264,7 @@ export default async function JobDetailPage({
                             {job.responsibilities &&
                                 job.responsibilities.length > 0 && (
                                     <div className='p-8 rounded-[32px] bg-gray-50/50 border border-gray-100'>
-                                        <h2 className='text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3'>
+                                        <h2 className='text-2xl font-bold text-navy100 mb-6 flex items-center gap-3'>
                                             <CheckCircle
                                                 size={28}
                                                 className='text-primary100'
@@ -301,7 +301,7 @@ export default async function JobDetailPage({
                             {job.requirements &&
                                 job.requirements.length > 0 && (
                                     <div className='p-8 rounded-[32px] bg-gray-50/50 border border-gray-100'>
-                                        <h2 className='text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3'>
+                                        <h2 className='text-2xl font-bold text-navy100 mb-6 flex items-center gap-3'>
                                             <Briefcase
                                                 size={28}
                                                 className='text-primary100'
@@ -339,7 +339,7 @@ export default async function JobDetailPage({
                         <div className='md:col-span-1 w-full'>
                             <div className='sticky top-28'>
                                 <div className='mb-6 p-2'>
-                                    <h2 className='text-2xl font-black text-gray-900 mb-2 leading-tight   tracking-tighter'>
+                                    <h2 className='text-2xl font-black text-navy100 mb-2 leading-tight   tracking-tighter'>
                                         Apply Now
                                     </h2>
                                     <p className='text-sm text-gray-500 font-medium'>
