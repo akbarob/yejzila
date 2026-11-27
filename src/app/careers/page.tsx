@@ -96,7 +96,7 @@ export default async function CareersPage({ searchParams }: CareersPageProps) {
 
             <main className='min-h-screen bg-white'>
                 {/* ── Hero Section ───────────────────────────────────────────── */}
-                <section className='relative bg-[#0B0F1A] pt-40 pb-24 px-5 lg:px-28 xl:px-40 overflow-hidden'>
+                <section className='relative bg-navy900 pt-40 pb-24 px-5 lg:px-28 xl:px-40 overflow-hidden'>
                     {/* Background Decorative Element */}
                     <div className='absolute top-0 right-0 w-[500px] h-[500px] bg-primary100/10 blur-[120px] rounded-full -mr-48 -mt-48 pointer-events-none' />
                     
@@ -153,7 +153,7 @@ export default async function CareersPage({ searchParams }: CareersPageProps) {
                     <div className='mt-12 mb-8 flex items-center justify-between'>
                         <p className='text-gray-500 font-medium'>
                             Found{' '}
-                            <span className='text-gray-900 font-bold'>
+                            <span className='text-navy100 font-bold'>
                                 {filteredJobs.length}
                             </span>{' '}
                             {filteredJobs.length === 1 ? 'open position' : 'open positions'}

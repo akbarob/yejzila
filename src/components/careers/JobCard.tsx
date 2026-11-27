@@ -68,7 +68,7 @@ export default function JobCard({ job }: JobCardProps) {
             </span>
 
             {/* Job title */}
-            <h3 className='text-lg font-bold text-gray-900 group-hover:text-primary100 transition-colors line-clamp-2'>
+            <h3 className='text-lg font-bold text-navy100 group-hover:text-primary100 transition-colors line-clamp-2'>
                 {job.title}
             </h3>
 
